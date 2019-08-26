@@ -1,6 +1,7 @@
 import discord
 import time
 import random
+import os
 
 client = discord.Client()
 
@@ -167,5 +168,5 @@ async def on_message(message):
             embed.add_field(name='타이머', value='타이머 기능을 작동시킵니다 | 타이머 (초)', inline=False)
             await client.send_message(channel, embed=embed)
 
-
-client.run("NjA2MDMxNDY1ODQ2OTMxNDY2.XWQUhQ.mL81qeL27JzvAGucgEZo0m3XslM")
+access_token=os.environ["bot token"]
+client.run(access_token)
