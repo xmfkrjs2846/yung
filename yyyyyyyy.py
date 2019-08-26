@@ -168,5 +168,5 @@ async def on_message(message):
             embed.add_field(name='타이머', value='타이머 기능을 작동시킵니다 | 타이머 (초)', inline=False)
             await client.send_message(channel, embed=embed)
 
-access_token=os.environ["bot token"]
+access_token=os.environ["bot_token"]
 client.run(access_token)
