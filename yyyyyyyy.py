@@ -16,12 +16,12 @@ async def on_ready():
 async def on_message(message):
  if message.author != client.user:
 
-    #융 대화
+   #융 대화
     if message.content.startswith("융"):
         await client.send_message(message.channel,"융융!")
     if message.content.startswith("혹시"):
-        a='https://cdn.discordapp.com/attachments/406341210647691275/615585865376202778/096e1bda13e97ca1.gif'
-        await client.send_message(message.channel,"{}\n흐.흐흐..!".format(a))
+        await client.send_file(message.channel,'혹시.gif')
+        await client.send_message(message.channel,"흐.흐흐..!")
     if message.content.startswith("ㅋ"):
         await client.send_message(message.channel,"ㅋㅋㅋㅋㅋㅋ")
     if message.content.startswith("ㅗ"):
@@ -42,12 +42,16 @@ async def on_message(message):
     if message.content.startswith("ㅇㅈ"):
         await client.send_message(message.channel, "저는 이거 인정 못합니다!!")
     if message.content.startswith("융털"):
-        a='https://cdn.discordapp.com/attachments/406341210647691275/615586271804522517/11111.gif'
-        await client.send_message(message.channel, "{}\n벼...변.태..".format(a))
+        await client.send_file(message.channel, '11111.gif')
+        await client.send_message(message.channel, "벼...변.태..")
 
     if message.content.startswith("ㅇㅈ"):
         await client.send_message(message.channel, "난 일단은 인정 해줄게~")
+    if message.content.startswith("이이잉"):
+        await client.send_message(message.channel, "앗살라말라이쿰")
+        await client.send_file(message.channel, '안경.png')
     if message.content.startswith("섹스"):
+        await client.send_file(message.channel, '나 살쪘나...gif')
         await client.send_message(message.channel, "에!..엣.. 헤..헨따이!!")
     if message.content.startswith("시발"):
         await client.send_message(message.channel, "나쁜말? 나쁜말?! ㅡ.ㅡ")
@@ -56,22 +60,19 @@ async def on_message(message):
     if message.content.startswith("휴"):
         await client.send_message(message.channel, "뭔가 안좋은일이 라도 있었어??")
     if message.content.startswith("아님") or message.content.startswith("ㄴㄴ") or message.content.startswith("아니"):
-        a='https://cdn.discordapp.com/attachments/406341210647691275/615586477707100175/347a00484f32c41a.gif'
-        await client.send_message(message.channel, "{}\n머가 아닌데?? 솔직히 말해바~ 내가 다 들어줄게~ㅋㅋ".format(a))
-    if message.content.startswith("오"):
-        a="https://cdn.discordapp.com/attachments/406341210647691275/615586679205527552/069dc3c7cb616f53.gif"
-        await client.send_message(message.channel,'{}'.format(a))
+        await client.send_file(message.channel, '아 아니야.gif')
+        await client.send_message(message.channel, "머가 아닌데?? 솔직히 말해바~ 내가 다 들어줄게~ㅋㅋ")
     if message.content.startswith("메이플") or message.content.startswith("소전"):
-        a='https://cdn.discordapp.com/attachments/406341210647691275/615586873405866000/de6c6ac7c6c0fa17.gif'
-        await client.send_message(message.channel, "{}\n일도 좋지만 좀 쉬어가면서 하는게 어때??!".format(a))
+        await client.send_file(message.channel,'일.gif')
+        await client.send_message(message.channel, "일도 좋지만 좀 쉬어가면서 하는게 어때??!")
     if message.content.startswith("뜨끔") or message.content.startswith("들킴"):
-        a='https://cdn.discordapp.com/attachments/406341210647691275/615597804341166091/09a0916a97c8b9a1.gif'
-        await client.send_message(message.channel, "{}.....?".format(a))
+        await client.send_file(message.channel, '두리번 두리번.gif')
+        await client.send_message(message.channel, "....?")
     #호출
     if message.content.startswith('준혁'):
-        a='https://cdn.discordapp.com/attachments/406341210647691275/615587057313644545/b4f525b2132f343e.gif'
+        await client.send_file(message.channel, '뜨끔...gif')
         myid = '<@379966497293991937>'
-        await client.send_message(message.channel,"{}\n{}누군가 널 부르는거 같은데??".format(a,myid))
+        await client.send_message(message.channel,"{}누군가 널 부르는거 같은데??".format(myid))
     if message.content.startswith('태훈'):
         myid='<@344788669502193666>'
         await client.send_message(message.channel, "{}누가 널 먹을려하는 것 같아 좀 무섭다.. ".format(myid))
@@ -94,9 +95,21 @@ async def on_message(message):
 
     if message.content.startswith("안녕"):
         msg = "반가워~ {0.author.mention}아!!".format(message)
-        a='https://cdn.discordapp.com/attachments/406341210647691275/615587859771949080/60cdded562637904.gif'
-        await client.send_message(message.channel,"{}\n{}".format(a,msg))
-
+        await client.send_file(message.channel,'새로운 안녕.gif')
+        await client.send_message(message.channel,"{}".format(msg))
+    if message.content.startswith("!융"):
+        msgg=message.content[3:]
+        answer = [
+        '그게 좋은거같아!',
+        '나 그거 완전 좋아',
+        '그게 먼데 난 처음듣는건데??',
+        '흐헤헤 이거 치워줘 ㅜㅜ',
+        '넌 미움받을 짓만 하는구나..',
+        '아무생각 없다',
+        '(딴청을 피우는 것 같다']
+        total=random.choice(answer)
+        people='{0.author.mention}'.format(message)
+        await client.send_message(message.channel,'{}의 질문:{}\n융의 대답:{}'.format(people,msgg,total))
 
     if message.content.startswith("골라"):
             choice = message.content.split(" ")
@@ -146,12 +159,11 @@ async def on_message(message):
             embed.add_field(name='융', value='융융이라 답해줍니다?', inline=False)
             embed.add_field(name='혹시', value='(사진주의)', inline=False)
             embed.add_field(name='아님,ㄴㄴ,아니', value='(사진주의)', inline=False)
-            embed.add_field(name='오', value='(사진주의)', inline=False)
             embed.add_field(name='메이플,소전', value='(사진주의)', inline=False)
             embed.add_field(name='뜨끔,들킴', value='(사진주의)', inline=False)
             embed.add_field(name='심심', value='심심하다', inline=False)
             embed.add_field(name='융털', value='그만 놀려', inline=False)
-            embed.add_field(name='섹스', value='좋은 말 쓰자', inline=False)
+            embed.add_field(name='섹스', value='(사진주의)좋은 말 쓰자', inline=False)
             embed.add_field(name='시발', value='좋은 말 쓰자', inline=False)
             embed.add_field(name='ㄹㅇ', value='대영이가 많이 씀', inline=False)
             embed.add_field(name='ㅗ', value='엿을 날려줍니다', inline=False)
@@ -159,7 +171,7 @@ async def on_message(message):
             embed.add_field(name='야', value='융이 대답을 해줍니다.', inline=False)
             embed.add_field(name='https', value='유튜브 영상에 감탄사를 해줍니다', inline=False)
             embed.add_field(name='안녕', value='융이 인사를 해줍니다', inline=False)
-            embed.add_field(name='!융', value='!융 [질문]', inline=False)
+            embed.add_field(name='!융', value='!융 [질문] 종은 것 싫은것을 답해줍니다' , inline=False)
             embed.add_field(name='주사위', value='1~6의 숫자를 골라줍니다', inline=False)
             embed.add_field(name='골라', value='골라 [고를꺼1] [고를꺼2] [고를꺼3] ...', inline=False)
             embed.add_field(name='ㅇㅈ', value='융이 인정을 안해줍니다ㅜ', inline=False)
