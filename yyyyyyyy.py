@@ -45,7 +45,7 @@ async def on_message(message):
         await client.send_file(message.channel, '11111.gif')
         await client.send_message(message.channel, "벼...변.태..")
 
-    if message.content.startswith("ㅇㅈ"):
+    if message.content.startswith("인정"):
         await client.send_message(message.channel, "난 일단은 인정 해줄게~")
     if message.content.startswith("이이잉"):
         await client.send_message(message.channel, "앗살라말라이쿰")
@@ -91,8 +91,9 @@ async def on_message(message):
     if message.content.startswith('민기'):
         myid = '<@253749865035726848>'
         await client.send_message(message.channel, "{}저기! 당신의 이름이 뜻하는건 뭔지 알려해주세요!!".format(myid))
-
-
+    if message.content.startswith('권영'):
+        myid = '<@410450620823371778>'
+        await client.send_message(message.channel, "{}さんの共に마인크라프토しませんか".format(myid))
     if message.content.startswith("안녕"):
         msg = "반가워~ {0.author.mention}아!!".format(message)
         await client.send_file(message.channel,'새로운 안녕.gif')
@@ -178,6 +179,7 @@ async def on_message(message):
             embed.add_field(name='인정', value='융이 인정을 해줍니다', inline=False)
             embed.add_field(name='청소', value='메세지를 삭제해줍니다. | 청소 (개수)', inline=False)
             embed.add_field(name='타이머', value='타이머 기능을 작동시킵니다 | 타이머 (초)', inline=False)
+            embed.add_field(name='이이잉', value='앗살라말라이꿈?!', inline=False)
             await client.send_message(channel, embed=embed)
 
 access_token=os.environ["bot_token"]
