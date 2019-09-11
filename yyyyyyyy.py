@@ -146,7 +146,8 @@ async def on_message(message):
             else:
                 await client.send_message(message.channel,
                                           embed=discord.Embed(description='땡땡땡', colour=discord.Colour.gold()))
-
+    if message.content.startswith('뉴 게임'):
+            await client.send_message(message.channel, ";;p https://www.youtube.com/watch?v=MmCJkdB4k8A&list=PLFXVNXyJckz9GHaYgk3q4PAnUy4WGsvTk")
     if message.content.startswith("도와줘") or message.content.startswith("help"):
             channel = message.channel
             embed = discord.Embed(
