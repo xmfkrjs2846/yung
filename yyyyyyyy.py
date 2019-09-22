@@ -10,7 +10,7 @@ client = discord.Client()
 async def on_ready():
     print(client.user.id)
     print("ready")
-    await client.change_presence(game=discord.Game(name="개발 중지ㅠ | help", type=1))
+    await client.change_presence(game=discord.Game(name="추가 완료랄까? | help", type=1))
 
 @client.event
 async def on_message(message):
