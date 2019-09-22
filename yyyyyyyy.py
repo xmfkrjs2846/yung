@@ -41,6 +41,8 @@ async def on_message(message):
         await client.send_message(message.channel,"휴가 나왔어? 부럽네~")
     if message.content.startswith("ㅇㅈ"):
         await client.send_message(message.channel, "저는 이거 인정 못합니다!!")
+    if message.content.startswith("ㄷㅊ") or message.content.stratswith("닥쳐"):
+        await client.send_message(message.channel, "선배 죄송합니다...ㅜㅜ 다시 일 시작할게요ㅠㅠ 해고만은!!")
     if message.content.startswith("융털"):
         await client.send_file(message.channel, '11111.gif')
         await client.send_message(message.channel, "벼...변.태..")
@@ -90,10 +92,19 @@ async def on_message(message):
         await client.send_message(message.channel, "{}리듬게임하고 있는 것 같은데 잠깐 나랑 이야기좀 해줄 수 있니?".format(myid))
     if message.content.startswith('민기'):
         myid = '<@253749865035726848>'
-        await client.send_message(message.channel, "{}저기! 당신의 이름이 뜻하는건 뭔지 알려해주세요!!".format(myid))
+        await client.send_message(message.channel, "{}저기! 당신의 이름이 뜻하는건 뭔지 알려주세요!!".format(myid))
     if message.content.startswith('권영'):
         myid = '<@410450620823371778>'
         await client.send_message(message.channel, "{}さんの共に마인크라프토しませんか".format(myid))
+    if message.content.startswith('현개') or message.content.startswith("성현"):
+        myid = '<@245857392623878146>'
+        await client.send_message(message.channel, "{}연꽃? 렌게?! 흐음~ 뭔가 떠오르는 것 같기도 하고 아무튼 당신을 부르고있어요.".format(myid))
+    if message.content.startswith('종원'):
+        myid = '<@271957069991641088>'
+        await client.send_message(message.channel, "{}아이돌마스터?? 그게 머야? 먹는거야? 대답해바!!".format(myid))
+    if message.content.startswith('희태'):
+        myid = '<@241906227611697153>'
+        await client.send_message(message.channel, "{}벌레다!! 꺅!.. 서..선배.. 저 벌레좀 어떻게 해주세요!ㅠㅠ ".format(myid))
     if message.content.startswith("안녕"):
         msg = "반가워~ {0.author.mention}아!!".format(message)
         await client.send_file(message.channel,'새로운 안녕.gif')
@@ -146,8 +157,6 @@ async def on_message(message):
             else:
                 await client.send_message(message.channel,
                                           embed=discord.Embed(description='땡땡땡', colour=discord.Colour.gold()))
-    if message.content.startswith('뉴 게임'):
-            await client.send_message(message.channel, ";;p https://www.youtube.com/watch?v=MmCJkdB4k8A&list=PLFXVNXyJckz9GHaYgk3q4PAnUy4WGsvTk")
     if message.content.startswith("도와줘") or message.content.startswith("help"):
             channel = message.channel
             embed = discord.Embed(
@@ -170,6 +179,7 @@ async def on_message(message):
             embed.add_field(name='ㄹㅇ', value='대영이가 많이 씀', inline=False)
             embed.add_field(name='ㅗ', value='엿을 날려줍니다', inline=False)
             embed.add_field(name='휴', value='왜 넣었지', inline=False)
+            embed.add_field(name='ㄷㅊ or 닥쳐', value='영웅이가 융을 싫어해서 넣었어요', inline=False)
             embed.add_field(name='야', value='융이 대답을 해줍니다.', inline=False)
             embed.add_field(name='https', value='유튜브 영상에 감탄사를 해줍니다', inline=False)
             embed.add_field(name='안녕', value='융이 인사를 해줍니다', inline=False)
