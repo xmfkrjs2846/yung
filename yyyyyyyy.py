@@ -41,7 +41,7 @@ async def on_message(message):
         await client.send_message(message.channel,"휴가 나왔어? 부럽네~")
     if message.content.startswith("ㅇㅈ"):
         await client.send_message(message.channel, "저는 이거 인정 못합니다!!")
-    if message.content.startswith("ㄷㅊ") or message.content.stratswith("닥쳐"):
+    if message.content.startswith("ㄷㅊ") or message.content.startswith("닥쳐"):
         await client.send_message(message.channel, "선배 죄송합니다...ㅜㅜ 다시 일 시작할게요ㅠㅠ 해고만은!!")
     if message.content.startswith("융털"):
         await client.send_file(message.channel, '11111.gif')
