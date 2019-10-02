@@ -10,7 +10,7 @@ client = discord.Client()
 async def on_ready():
     print(client.user.id)
     print("ready")
-    await client.change_presence(game=discord.Game(name="추가 완료랄까? | help", type=1))
+    await client.change_presence(game=discord.Game(name="버그시 호출;;| help", type=1))
 
 @client.event
 async def on_message(message):
@@ -72,38 +72,68 @@ async def on_message(message):
         await client.send_message(message.channel, "....?")
     #호출
     if message.content.startswith('준혁'):
-        await client.send_file(message.channel, '뜨끔...gif')
         myid = '<@379966497293991937>'
+        me = await client.get_user_info('379966497293991937')
+        msg = "{0.author.mention}가 너를 부르고 있어~ 빨리 가보는게 어때?".format(message)
+        await client.send_message(me, "{}".format(msg))
+        await client.send_file(message.channel, '뜨끔...gif')
         await client.send_message(message.channel,"{}누군가 널 부르는거 같은데??".format(myid))
     if message.content.startswith('태훈'):
         myid='<@344788669502193666>'
         await client.send_message(message.channel, "{}누가 널 먹을려하는 것 같아 좀 무섭다.. ".format(myid))
     if message.content.startswith('대영'):
         myid='<@368617760412139520>'
+        me = await client.get_user_info('368617760412139520')
+        msg = "{0.author.mention}상가 키미또 엣찌이나 코토 시타이떼 이떼이루요!!".format(message)
+        await client.send_message(me, "{}".format(msg))
         await client.send_message(message.channel, "{}아다 누가 너 부른다잉 씨게 대답 하그라!".format(myid))
     if message.content.startswith('영웅'):
         myid='<@286329350633029634>'
+        me = await client.get_user_info('286329350633029634')
+        msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
+        await client.send_message(me, "{}".format(msg))
         await client.send_message(message.channel, "{}169.7cm..?그사람 여자야? 170cm가 안된다고?!".format(myid))
     if message.content.startswith('후석'):
         myid='<@247651944926019584>'
+        me = await client.get_user_info('247651944926019584')
+        msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
+        await client.send_message(me, "{}".format(msg))
         await client.send_message(message.channel, "{}저..저기..어떡해 이사람 꼭 불러야해??ㅠㅠ".format(myid))
     if message.content.startswith('종민'):
         myid = '<@206663386937688065>'
+        me = await client.get_user_info('206663386937688065')
+        msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
+        await client.send_message(me, "{}".format(msg))
         await client.send_message(message.channel, "{}리듬게임하고 있는 것 같은데 잠깐 나랑 이야기좀 해줄 수 있니?".format(myid))
     if message.content.startswith('민기'):
         myid = '<@253749865035726848>'
+        me = await client.get_user_info('253749865035726848')
+        msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
+        await client.send_message(me, "{}".format(msg))
         await client.send_message(message.channel, "{}저기! 당신의 이름이 뜻하는건 뭔지 알려주세요!!".format(myid))
     if message.content.startswith('권영'):
         myid = '<@410450620823371778>'
+        me = await client.get_user_info('410450620823371778')
+        msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
+        await client.send_message(me, "{}".format(msg))
         await client.send_message(message.channel, "{}さんの共に마인크라프토しませんか".format(myid))
     if message.content.startswith('현개') or message.content.startswith("성현"):
         myid = '<@245857392623878146>'
+        me = await client.get_user_info('245857392623878146')
+        msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
+        await client.send_message(me, "{}".format(msg))
         await client.send_message(message.channel, "{}연꽃? 렌게?! 흐음~ 뭔가 떠오르는 것 같기도 하고 아무튼 당신을 부르고있어요.".format(myid))
     if message.content.startswith('종원'):
         myid = '<@271957069991641088>'
+        me = await client.get_user_info('271957069991641088')
+        msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
+        await client.send_message(me, "{}".format(msg))
         await client.send_message(message.channel, "{}아이돌마스터?? 그게 머야? 먹는거야? 대답해바!!".format(myid))
     if message.content.startswith('희태'):
         myid = '<@241906227611697153>'
+        me = await client.get_user_info('241906227611697153')
+        msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
+        await client.send_message(me, "{}".format(msg))
         await client.send_message(message.channel, "{}벌레다!! 꺅!.. 서..선배.. 저 벌레좀 어떻게 해주세요!ㅠㅠ ".format(myid))
     if message.content.startswith("안녕"):
         msg = "반가워~ {0.author.mention}아!!".format(message)
@@ -192,6 +222,7 @@ async def on_message(message):
             embed.add_field(name='타이머', value='타이머 기능을 작동시킵니다 | 타이머 (초)', inline=False)
             embed.add_field(name='이이잉', value='앗살라말라이꿈?!', inline=False)
             await client.send_message(channel, embed=embed)
+
 
 access_token=os.environ["bot_token"]
 client.run(access_token)
