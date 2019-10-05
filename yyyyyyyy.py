@@ -1,3 +1,5 @@
+from bs4 import BeautifulSoup as bs
+import requests
 import discord
 import time
 import random
@@ -152,7 +154,33 @@ async def on_message(message):
         total=random.choice(answer)
         people='{0.author.mention}'.format(message)
         await client.send_message(message.channel,'{}의 질문:{}\n융의 대답:{}'.format(people,msgg,total))
+    if message.content.startswith('날씨'):
+        search=message.content[3:]
+        html = requests.get('https://search.naver.com/search.naver?query={} 날씨'.format(search))
+        soup = bs(html.text, 'html.parser')
 
+        data1 = soup.find('ul', {'class': 'info_list'})
+        data3 = data1.find('p', {'class': 'cast_txt'}).text
+        data2 = soup.find('p', {'class': 'info_temperature'})
+        data4 = data2.find('span',{'class':'todaytemp'}).text
+
+        data5 = soup.find('div', {'class': 'tomorrow_area'})
+        data6 = data5.find('p', {'class': 'info_temperature'})
+        data8 = data6.find('span', {'class': 'todaytemp'}).text
+        data7 = data5.find('ul', {'class': 'info_list'}).text
+
+        tomorrowAreaBase = soup.find('div', {'class': 'tomorrow_area'})
+        tomorrowAllFind = tomorrowAreaBase.find_all('div', {'class': 'main_info morning_box'})
+        tomorrowAfter1 = tomorrowAllFind[1]
+        tomorrowAfter2 = tomorrowAfter1.find('p', {'class': 'info_temperature'})
+        tomorrowAfter3 = tomorrowAfter2.find('span', {'class': 'todaytemp'})
+        tomorrowAfterTemp = tomorrowAfter3.text.strip()   #온도
+        tomorrowAfterValue1 = tomorrowAfter1.find('div', {'class': 'info_data'})
+        tomorrowAfterValue = tomorrowAfterValue1.text.strip() #날씨
+        await client.send_message(message.channel, '현재 {}의 온도는 {}˚이며\n날씨는 {}'.format(search,data4,data3))
+        await client.send_message(message.channel, '--------------------------\n내일 오전의 온도는 {}˚이며\n날씨는 {}'.format(data8,data7))
+        await client.send_message(message.channel,'--------------------------\n내일 오후의 온도는 {}˚이며\n날씨는 {}'.format(tomorrowAfterTemp,tomorrowAfterValue))
+        await client.send_message(message.channel,'-----------------------\n이상 이글점프소속 그래피커 이이지마 윤이였습니다!!')
     if message.content.startswith("골라"):
             choice = message.content.split(" ")
             chonumber = random.randint(1, len(choice) - 1)
@@ -187,6 +215,7 @@ async def on_message(message):
             else:
                 await client.send_message(message.channel,
                                           embed=discord.Embed(description='땡땡땡', colour=discord.Colour.gold()))
+   
     if message.content.startswith("도와줘") or message.content.startswith("help"):
             channel = message.channel
             embed = discord.Embed(
@@ -220,6 +249,7 @@ async def on_message(message):
             embed.add_field(name='인정', value='융이 인정을 해줍니다', inline=False)
             embed.add_field(name='청소', value='메세지를 삭제해줍니다. | 청소 (개수)', inline=False)
             embed.add_field(name='타이머', value='타이머 기능을 작동시킵니다 | 타이머 (초)', inline=False)
+            embed.add_field(name='날씨', value='현재와 내일 오전,오후날씨를 알 수 있습니다. | 날씨 (지역)', inline=False)
             embed.add_field(name='이이잉', value='앗살라말라이꿈?!', inline=False)
             await client.send_message(channel, embed=embed)
 
