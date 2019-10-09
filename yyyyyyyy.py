@@ -137,6 +137,12 @@ async def on_message(message):
         msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
         await client.send_message(me, "{}".format(msg))
         await client.send_message(message.channel, "{}벌레다!! 꺅!.. 서..선배.. 저 벌레좀 어떻게 해주세요!ㅠㅠ ".format(myid))
+    if message.content.startswith('성규') or message.content.startswith('슬기') or message.content.startswith('성구'):
+        myid = '<@356311092332593152>'
+        me = await client.get_user_info('356311092332593152')
+        msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
+        await client.send_message(me, "{}".format(msg))
+        await client.send_message(message.channel, "{} 80만원 쓴 음머어~ 찾아요!!".format(myid))
     if message.content.startswith("안녕"):
         msg = "반가워~ {0.author.mention}아!!".format(message)
         await client.send_file(message.channel,'새로운 안녕.gif')
@@ -154,6 +160,7 @@ async def on_message(message):
         total=random.choice(answer)
         people='{0.author.mention}'.format(message)
         await client.send_message(message.channel,'{}의 질문:{}\n융의 대답:{}'.format(people,msgg,total))
+
     if message.content.startswith('날씨'):
         search=message.content[3:]
         html = requests.get('https://search.naver.com/search.naver?query={} 날씨'.format(search))
@@ -180,7 +187,9 @@ async def on_message(message):
         await client.send_message(message.channel, '현재 {}의 온도는 {}˚이며\n날씨는 {}'.format(search,data4,data3))
         await client.send_message(message.channel, '--------------------------\n내일 오전의 온도는 {}˚이며\n날씨는 {}'.format(data8,data7))
         await client.send_message(message.channel,'--------------------------\n내일 오후의 온도는 {}˚이며\n날씨는 {}'.format(tomorrowAfterTemp,tomorrowAfterValue))
+        time.sleep(1)
         await client.send_message(message.channel,'-----------------------\n이상 이글점프소속 그래피커 이이지마 윤이였습니다!!')
+
     if message.content.startswith("골라"):
             choice = message.content.split(" ")
             chonumber = random.randint(1, len(choice) - 1)
@@ -215,44 +224,46 @@ async def on_message(message):
             else:
                 await client.send_message(message.channel,
                                           embed=discord.Embed(description='땡땡땡', colour=discord.Colour.gold()))
-   
+
+    if message.content.startswith('이미지검색'):
+        search = message.content[6:]
+        html = requests.get('https://search.naver.com/search.naver?where=image&sm=tab_jum&query={}'.format(search))
+        soup = bs(html.text, 'html.parser')
+        imgs = soup.find('img', class_='_img')
+        imgs2 = imgs.get('data-source')
+
+        link = soup.find('div', {'class': 'photo_grid _box'})
+        link2 = link.findAll('a')
+        link3 = link2[1]
+        link4 = link3.get('href')
+
+        embed = discord.Embed(
+            colour=discord.Colour.green()
+        )
+        embed.add_field(name='검색: '+search, value='이미지링크 : ' + link4, inline=False)
+        embed.set_footer(icon_url='https://cdn.discordapp.com/attachments/621324300120490006/631109608638906408/12121212121211111.jpg',text=f'{message.author.name}선배가 요청하신 자료에요~ 저 잘했죠?!')
+        embed.set_image(url=imgs2)  # 이미지의 링크를 지정해 이미지를 설정합니다.
+        await client.send_message(message.channel, embed=embed)  # 메시지를 보냅니다.
+
     if message.content.startswith("도와줘") or message.content.startswith("help"):
             channel = message.channel
             embed = discord.Embed(
                 title="내가 할 수 있는 일들의 목록이야!",
                 description="""잘 읽고 나한테 말해줘!! ------------------------------------------------------------""",
                 colour=discord.Colour.blue()
-            )
+ )
 
             embed.set_thumbnail(
                 url='https://media.discordapp.net/attachments/405331598922219521/608627874299248661/151551155151511515.jpg')
-            embed.add_field(name='융', value='융융이라 답해줍니다?', inline=False)
-            embed.add_field(name='혹시', value='(사진주의)', inline=False)
-            embed.add_field(name='아님,ㄴㄴ,아니', value='(사진주의)', inline=False)
-            embed.add_field(name='메이플,소전', value='(사진주의)', inline=False)
-            embed.add_field(name='뜨끔,들킴', value='(사진주의)', inline=False)
-            embed.add_field(name='심심', value='심심하다', inline=False)
-            embed.add_field(name='융털', value='그만 놀려', inline=False)
-            embed.add_field(name='섹스', value='(사진주의)좋은 말 쓰자', inline=False)
-            embed.add_field(name='시발', value='좋은 말 쓰자', inline=False)
-            embed.add_field(name='ㄹㅇ', value='대영이가 많이 씀', inline=False)
-            embed.add_field(name='ㅗ', value='엿을 날려줍니다', inline=False)
-            embed.add_field(name='휴', value='왜 넣었지', inline=False)
-            embed.add_field(name='ㄷㅊ or 닥쳐', value='영웅이가 융을 싫어해서 넣었어요', inline=False)
-            embed.add_field(name='야', value='융이 대답을 해줍니다.', inline=False)
-            embed.add_field(name='https', value='유튜브 영상에 감탄사를 해줍니다', inline=False)
-            embed.add_field(name='안녕', value='융이 인사를 해줍니다', inline=False)
+
             embed.add_field(name='!융', value='!융 [질문] 종은 것 싫은것을 답해줍니다' , inline=False)
             embed.add_field(name='주사위', value='1~6의 숫자를 골라줍니다', inline=False)
             embed.add_field(name='골라', value='골라 [고를꺼1] [고를꺼2] [고를꺼3] ...', inline=False)
-            embed.add_field(name='ㅇㅈ', value='융이 인정을 안해줍니다ㅜ', inline=False)
-            embed.add_field(name='인정', value='융이 인정을 해줍니다', inline=False)
             embed.add_field(name='청소', value='메세지를 삭제해줍니다. | 청소 (개수)', inline=False)
             embed.add_field(name='타이머', value='타이머 기능을 작동시킵니다 | 타이머 (초)', inline=False)
             embed.add_field(name='날씨', value='현재와 내일 오전,오후날씨를 알 수 있습니다. | 날씨 (지역)', inline=False)
-            embed.add_field(name='이이잉', value='앗살라말라이꿈?!', inline=False)
+            embed.add_field(name='이미지검색', value='네이버이미지검색 첫번째 이미지를 가져옵니다 | 이미지검색 (검색어)', inline=False)
             await client.send_message(channel, embed=embed)
-
 
 access_token=os.environ["bot_token"]
 client.run(access_token)
