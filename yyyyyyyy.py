@@ -39,6 +39,8 @@ async def on_message(message):
 
     if message.content.startswith("https"):
         await client.send_message(message.channel,"머야?머야? 나도 볼래!!")
+    if message.content.startswith("집가고싶다"):
+        await client.send_message(message.channel, "ㅋㅋㅋㅋ 부럽지? 부러럽지?? 부럽지???!")
     if message.content.startswith("심심"):
         await client.send_message(message.channel,"휴가 나왔어? 부럽네~")
     if message.content.startswith("ㅇㅈ"):
@@ -196,6 +198,7 @@ async def on_message(message):
             choiceresult = choice[chonumber]
             await client.send_message(message.channel, '나는 "{}" 좋다고 생각해!!'.format(choiceresult))
 
+
     if message.content.startswith("주사위"):
             dice = random.randrange(1, 6)
             await client.send_message(message.channel, """너한테는 불행이 어울려보여~! 내가 3초 세줄게! 3초!""")
@@ -225,6 +228,36 @@ async def on_message(message):
                 await client.send_message(message.channel,
                                           embed=discord.Embed(description='땡땡땡', colour=discord.Colour.gold()))
 
+    if message.content.startswith('검색'):
+        life = message.content[3:]
+        learn = life.split(" ")
+        vrsize = len(learn)  # 배열크기
+        vrsize = int(vrsize)
+        encText= learn[0]
+        for i in range(1, vrsize):  # 띄어쓰기 한 텍스트들 인식함
+             encText=('{}+{}'.format(encText,learn[i]))
+        html1 = ('https://search.naver.com/search.naver?query={}'.format(encText))
+        html4 =('https://www.youtube.com/results?search_query={}'.format(encText))
+        html2 =('https://www.google.com/search?biw=1920&bih=969&ei=2pClXdu9DdXemAWLkKyoDw&q={}&oq={}&gs_l=psy-ab.3..0l10.60853.65724..65879...12.0..3.219.2223.8j11j1......0....1..gws-wiz.....0..0i67j0i131j0i10j0i10i30j0i5i10i30.EV6bS6ZxCD8&ved=0ahUKEwjbkpes-Z3lAhVVL6YKHQsIC_UQ4dUDCAs&uact=5'.format(encText,encText))
+        html3 =('https://namu.wiki/w/{}'.format(encText))
+        naver = ('네이버_링크')
+        tree = ('나무위키_링크')
+        google = ('구글_링크')
+        youtu = ('유튜브_링크')
+        embed = discord.Embed(
+                colour=discord.Colour.green()
+ )
+        embed.set_thumbnail(
+            url='https://cdn.discordapp.com/attachments/621324300120490006/633613406150328320/155151515151.jpg')
+        embed.add_field(name='네이버,구글,나무위키,유튜브사이트로 검색할게~!', value='{}를 검색해볼게~\n-------------------------------------------------------'.format(life), inline=False)
+        embed.add_field(name='네이버', value='[%s](<%s>)' % (naver,html1), inline=False)
+        embed.add_field(name='구글', value='[%s](<%s>)' % (google, html2), inline=False)
+        embed.add_field(name='나무위키', value='[%s](<%s>)' % (tree, html3), inline=False)
+        embed.add_field(name='유튜브', value='[%s](<%s>)' %(youtu, html4), inline=False)
+        embed.set_footer(
+            icon_url='https://cdn.discordapp.com/attachments/621324300120490006/631109608638906408/12121212121211111.jpg',
+            text=f'{message.author.name}아 우리 쉬는시간을 가지는건 어때??')
+        await client.send_message(message.channel, embed=embed)
     if message.content.startswith('이미지검색'):
         search = message.content[6:]
         html = requests.get('https://search.naver.com/search.naver?where=image&sm=tab_jum&query={}'.format(search))
