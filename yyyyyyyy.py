@@ -3,6 +3,7 @@ import requests
 import discord
 import time
 import random
+import openpyxl
 import os
 
 client = discord.Client()
@@ -59,7 +60,7 @@ async def on_message(message):
     if message.content.startswith("섹스"):
         await client.send_file(message.channel, '나 살쪘나...gif')
         await client.send_message(message.channel, "에!..엣.. 헤..헨따이!!")
-    if message.content.startswith("시발"):
+    if message.content.startswith("시발") or message.content.startswith("ㅅㅂ"):
         await client.send_message(message.channel, "나쁜말? 나쁜말?! ㅡ.ㅡ")
     if message.content.startswith("ㄹㅇ"):
         await client.send_message(message.channel, "너어어..는 저어어어엉.말")
@@ -162,7 +163,10 @@ async def on_message(message):
         total=random.choice(answer)
         people='{0.author.mention}'.format(message)
         await client.send_message(message.channel,'{}의 질문:{}\n융의 대답:{}'.format(people,msgg,total))
-
+    if message.content.startswith('조용'):
+        member = message.server.get_member(379966497293991937)
+        role = discord.utils.get(message.server.roles, name="mute")
+        await client.add_roles(role, member)
     if message.content.startswith('날씨'):
         search=message.content[3:]
         html = requests.get('https://search.naver.com/search.naver?query={} 날씨'.format(search))
@@ -227,7 +231,36 @@ async def on_message(message):
             else:
                 await client.send_message(message.channel,
                                           embed=discord.Embed(description='땡땡땡', colour=discord.Colour.gold()))
-
+    if message.content.startswith('저장'):
+       file = openpyxl.load_workbook('저장.xlsx')
+       sheet = file.active
+       learn = message.content.split(" ")
+       for i in range(1, 201):
+               if sheet["A" + str(i)].value == "-" or sheet["A" + str(i)].value == learn[1]:
+                    sheet["A" + str(i)].value = learn[1]
+                    sheet["B" + str(i)].value = learn[2]
+                    await client.send_message(message.channel, "말해 {}이라고 하면 내가 {}이라고 앞으로 대답해줄게".format(learn[1],learn[2]))
+                    await client.send_message(message.channel, "★ 현재 사용중인 데이터 저장용량 : 200/" + str(i) + " ★")
+                    break
+       file.save("저장.xlsx")
+    if message.content.startswith("말해"):
+         file = openpyxl.load_workbook("저장.xlsx")
+         sheet = file.active
+         memory = message.content.split(" ")
+         for i in range(1, 201):
+                  if sheet["A" + str(i)].value == memory[1]:
+                        await client.send_message(message.channel, sheet["B" + str(i)].value)
+                        break
+    if message.content.startswith("기억데이터"):
+         file = openpyxl.load_workbook("저장.xlsx")
+         sheet = file.active
+         for i in range(1, 201):
+                   if sheet["A" + str(i)].value == "-" and i == 1:
+                          await client.send_message(message.channel, "데이터 없음")
+                   if sheet["A" + str(i)].value == "-":
+                           break
+                   await client.send_message(message.channel,
+                                   "A : " + sheet["A" + str(i)].value + " B : " + sheet["B" + str(i)].value)
     if message.content.startswith('검색'):
         life = message.content[3:]
         learn = life.split(" ")
@@ -239,7 +272,10 @@ async def on_message(message):
         html1 = ('https://search.naver.com/search.naver?query={}'.format(encText))
         html4 =('https://www.youtube.com/results?search_query={}'.format(encText))
         html2 =('https://www.google.com/search?biw=1920&bih=969&ei=2pClXdu9DdXemAWLkKyoDw&q={}&oq={}&gs_l=psy-ab.3..0l10.60853.65724..65879...12.0..3.219.2223.8j11j1......0....1..gws-wiz.....0..0i67j0i131j0i10j0i10i30j0i5i10i30.EV6bS6ZxCD8&ved=0ahUKEwjbkpes-Z3lAhVVL6YKHQsIC_UQ4dUDCAs&uact=5'.format(encText,encText))
-        html3 =('https://namu.wiki/w/{}'.format(encText))
+        encText1 = learn[0]
+        for i in range(1, vrsize):  # 띄어쓰기 한 텍스트들 인식함
+             encText1=('{}%20{}'.format(encText1,learn[i]))
+        html3 =('https://namu.wiki/w/{}'.format(encText1))
         naver = ('네이버_링크')
         tree = ('나무위키_링크')
         google = ('구글_링크')
@@ -295,7 +331,11 @@ async def on_message(message):
             embed.add_field(name='청소', value='메세지를 삭제해줍니다. | 청소 (개수)', inline=False)
             embed.add_field(name='타이머', value='타이머 기능을 작동시킵니다 | 타이머 (초)', inline=False)
             embed.add_field(name='날씨', value='현재와 내일 오전,오후날씨를 알 수 있습니다. | 날씨 (지역)', inline=False)
+            embed.add_field(name='저장', value='저장 {a} {b} a단어를 들으면 b를 말해줍니다', inline=False)
+            embed.add_field(name='말해', value='말해 (융에게 시킬 단어)를 쓰면 융이 말해줌', inline=False)
+            embed.add_field(name='기억데이터', value='융이 저장한 단어들을 표시함', inline=False)
             embed.add_field(name='이미지검색', value='네이버이미지검색 첫번째 이미지를 가져옵니다 | 이미지검색 (검색어)', inline=False)
+
             await client.send_message(channel, embed=embed)
 
 access_token=os.environ["bot_token"]
