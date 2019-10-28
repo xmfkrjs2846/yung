@@ -133,7 +133,7 @@ async def on_message(message):
         me = await client.get_user_info('271957069991641088')
         msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
         await client.send_message(me, "{}".format(msg))
-        await client.send_message(message.channel, "{}아이돌마스터?? 그게 머야? 먹는거야? 대답해바!!".format(myid))
+        await client.send_message(message.channel, "{}아이돌마스터?? 그게 머야? 먹는거야? 그리고 혹시 러브라이브 좋아해??!ㅋ".format(myid))
     if message.content.startswith('희태'):
         myid = '<@241906227611697153>'
         me = await client.get_user_info('241906227611697153')
@@ -294,6 +294,48 @@ async def on_message(message):
             icon_url='https://cdn.discordapp.com/attachments/621324300120490006/631109608638906408/12121212121211111.jpg',
             text=f'{message.author.name}아 우리 쉬는시간을 가지는건 어때??')
         await client.send_message(message.channel, embed=embed)
+    if message.content.startswith('운세'):
+        Point = random.randint(1,100)
+        if Point >= 95:
+            await client.send_message(message.channel,"{}의 운세는 '대길'이며,\n행운수치는 100/{}입니다.".format(message.author.name,Point))
+            await client.send_message(message.channel, embed=discord.Embed(colour=discord.Colour.gold(), title='오늘 도박이라도 해보는게 어때?ㅋㅋ'))
+        elif Point >= 85:
+            await client.send_message(message.channel,"{}의 운세는 '길'이며,\n행운수치는 100/{}입니다.".format(message.author.name,Point))
+            await client.send_message(message.channel, embed=discord.Embed(colour=discord.Colour.gold(), title='흐음 오늘 좋은 일이 생길 수도??'))
+        elif Point >= 75:
+            await client.send_message(message.channel,"{}의 운세는 '중길'이며,\n행운수치는 100/{}입니다.".format(message.author.name,Point))
+            await client.send_message(message.channel, embed=discord.Embed(colour=discord.Colour.gold(), title='흐음 오늘 좋은 일이 생길 수도??'))
+        elif Point >= 65:
+            await client.send_message(message.channel,"{}의 운세는 '소길'이며,\n행운수치는 100/{}입니다.".format(message.author.name,Point))
+            await client.send_message(message.channel, embed=discord.Embed(colour=discord.Colour.gold(), title=' 나름..? 나쁘지 않네'))
+        elif Point >= 45:
+            await client.send_message(message.channel,"{}의 운세는 '평'이며,\n행운수치는 100/{}입니다.".format(message.author.name,Point))
+            await client.send_message(message.channel,
+                                      embed=discord.Embed(colour=discord.Colour.gold(), title='평..범..해...시시하다'))
+        elif Point >= 35:
+            await client.send_message(message.channel,"{}의 운세는 '흉'이며,\n행운수치는 100/{}입니다.".format(message.author.name,Point))
+            await client.send_message(message.channel,
+                                      embed=discord.Embed(colour=discord.Colour.gold(), title=' 헤에에..'))
+        elif Point >= 25:
+            await client.send_message(message.channel,"{}의 운세는 '소흉'이며,\n행운수치는 100/{}입니다.".format(message.author.name,Point))
+            await client.send_message(message.channel,
+                                      embed=discord.Embed(colour=discord.Colour.gold(), title='오늘 발밑 보고 조심히 다녀~ㅋㅋ'))
+        elif Point >= 15:
+            await client.send_message(message.channel,"{}의 운세는 '반흉'이며,\n행운수치는 100/{}입니다.".format(message.author.name,Point))
+            await client.send_message(message.channel,
+                                      embed=discord.Embed(colour=discord.Colour.gold(),
+                                                          title='당신은 반흉이요!!! 위이위이 저리가시오!'))
+        elif Point >= 5:
+            await client.send_message(message.channel,"{}의 운세는 '말흉'이며,\n행운수치는 100/{}입니다.".format(message.author.name,Point))
+            await client.send_message(message.channel,
+                                      embed=discord.Embed(colour=discord.Colour.gold(),
+                                                          title='나한테 붙지마!! 흉 옮겠다...'))
+        elif Point <= 5:
+            await client.send_message(message.channel,"{}의 운세는 '대흉'이며,\n행운수치는 100/{}입니다.".format(message.author.name,Point))
+            await client.send_message(message.channel,
+                                  embed=discord.Embed(colour=discord.Colour.gold(),
+                                                      title='너...오늘..집에 가만히..있어.. 좀 불안해~'))
+
     if message.content.startswith('이미지검색'):
         search = message.content[6:]
         html = requests.get('https://search.naver.com/search.naver?where=image&sm=tab_jum&query={}'.format(search))
@@ -333,6 +375,7 @@ async def on_message(message):
             embed.add_field(name='날씨', value='현재와 내일 오전,오후날씨를 알 수 있습니다. | 날씨 (지역)', inline=False)
             embed.add_field(name='저장', value='저장 {a} {b} a단어를 들으면 b를 말해줍니다', inline=False)
             embed.add_field(name='말해', value='말해 (융에게 시킬 단어)를 쓰면 융이 말해줌', inline=False)
+            embed.add_field(name='운세', value='당신의 오늘의 운을 말해줍니다.', inline=False)
             embed.add_field(name='기억데이터', value='융이 저장한 단어들을 표시함', inline=False)
             embed.add_field(name='이미지검색', value='네이버이미지검색 첫번째 이미지를 가져옵니다 | 이미지검색 (검색어)', inline=False)
 
