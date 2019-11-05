@@ -4,6 +4,8 @@ import discord
 import time
 import random
 import openpyxl
+from datetime import time
+import datetime
 import os
 
 client = discord.Client()
@@ -14,6 +16,19 @@ async def on_ready():
     print(client.user.id)
     print("ready")
     await client.change_presence(game=discord.Game(name="버그시 호출;;| help", type=1))
+@client.event
+async def on_member_join(member):
+    fmt = '[{1.name}] 에 입사한걸 환영해~, {0.mention}아'
+    channel = member.server.get_channel("621324300120490006")
+    await client.send_message(channel, fmt.format(member, member.server))
+    await client.send_message(channel,
+                              embed=discord.Embed(colour=discord.Colour.gold(), title='신입?! 이런 채널에?? 헐....;;'))
+
+@client.event
+async def on_member_remove(member):
+    channel = member.server.get_channel("621324300120490006")
+    fmt = '{0.mention}가 퇴사했어! 정말 현명한 선택인 것 같아.'
+    await client.send_message(channel, fmt.format(member, member.server))
 
 @client.event
 async def on_message(message):
@@ -40,8 +55,10 @@ async def on_message(message):
 
     if message.content.startswith("https"):
         await client.send_message(message.channel,"머야?머야? 나도 볼래!!")
+    if message.content.startswith("kokake"):
+        await client.send_message(message.channel,"코이카케루신아이카노조!")
     if message.content.startswith("집가고싶다"):
-        await client.send_message(message.channel, "ㅋㅋㅋㅋ 부럽지? 부러럽지?? 부럽지???!")
+        await client.send_message(message.channel, "ㅋㅋㅋㅋ 나는 평생 노는데 부럽지? 부러럽지?? 부럽지???!")
     if message.content.startswith("심심"):
         await client.send_message(message.channel,"휴가 나왔어? 부럽네~")
     if message.content.startswith("ㅇㅈ"):
@@ -163,10 +180,6 @@ async def on_message(message):
         total=random.choice(answer)
         people='{0.author.mention}'.format(message)
         await client.send_message(message.channel,'{}의 질문:{}\n융의 대답:{}'.format(people,msgg,total))
-    if message.content.startswith('조용'):
-        member = message.server.get_member(379966497293991937)
-        role = discord.utils.get(message.server.roles, name="mute")
-        await client.add_roles(role, member)
     if message.content.startswith('날씨'):
         search=message.content[3:]
         html = requests.get('https://search.naver.com/search.naver?query={} 날씨'.format(search))
@@ -261,6 +274,17 @@ async def on_message(message):
                            break
                    await client.send_message(message.channel,
                                    "A : " + sheet["A" + str(i)].value + " B : " + sheet["B" + str(i)].value)
+    if message.content.startswith("조용"):
+        role = "에엣취"
+        rolename1 = '606031465846931466'
+        member = discord.utils.get(client.get_all_members(), id=rolename1)
+        for i in message.server.roles:
+            if i.name == "에엣취":
+                role = i
+                break
+        await client.add_roles(member, role)
+        await client.send_message(message.channel, "에..에?? 나도 말 하..하고..싶어...(취소)를 하면 명령이 취소됩니다")
+
     if message.content.startswith('검색'):
         life = message.content[3:]
         learn = life.split(" ")
@@ -335,7 +359,21 @@ async def on_message(message):
             await client.send_message(message.channel,
                                   embed=discord.Embed(colour=discord.Colour.gold(),
                                                       title='너...오늘..집에 가만히..있어.. 좀 불안해~'))
+    if message.content.startswith('지하철'):
+        hello = datetime.datetime.now()
+        hello2 = hello.hour
+        search = message.content[4:]
+        html = requests.get('https://search.naver.com/search.naver?query={}'.format(search))
+        souup = bs(html.text, 'html.parser')
+        sub = souup.find('div', {'class': 'content_search'})
+        sub1 = sub.find('div', {'id': 'timetable_weekend'})
+        sub2 = sub1.find('tbody')
+        sub3 = sub2.find('tr')
+        sub4 = sub3.findAll('td', {'class': 'mid'}).text
 
+
+        print(sub4)
+        print(hello2)
     if message.content.startswith('이미지검색'):
         search = message.content[6:]
         html = requests.get('https://search.naver.com/search.naver?where=image&sm=tab_jum&query={}'.format(search))
