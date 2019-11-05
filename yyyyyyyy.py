@@ -4,8 +4,6 @@ import discord
 import time
 import random
 import openpyxl
-from datetime import time
-import datetime
 import os
 
 client = discord.Client()
@@ -22,7 +20,11 @@ async def on_member_join(member):
     channel = member.server.get_channel("527835129150832641")
     await client.send_message(channel, fmt.format(member, member.server))
     await client.send_message(channel,
-                              embed=discord.Embed(colour=discord.Colour.gold(), title='신입?! 이런 채널에?? 헐....;;\n나는 기능적인 부분을 도와줄꺼야\n 아오바는 음악적인 부분을 도와줄꺼야'))
+                              embed=discord.Embed(colour=discord.Colour.gold(), title='신입?! 이런 채널에?? 헐....;;'))
+    time.sleep(1)
+    await client.send_message(channel, "나는 기능하고 회화적인 부분을 도와줄꺼야")
+    time.sleep(1)
+    await client.send_message(channel, "아오바는 음악적인 부분을 도와줄꺼야")
 
 @client.event
 async def on_member_remove(member):
