@@ -19,14 +19,14 @@ async def on_ready():
 @client.event
 async def on_member_join(member):
     fmt = '[{1.name}] 에 입사한걸 환영해~, {0.mention}아'
-    channel = member.server.get_channel("621324300120490006")
+    channel = member.server.get_channel("527835129150832641")
     await client.send_message(channel, fmt.format(member, member.server))
     await client.send_message(channel,
                               embed=discord.Embed(colour=discord.Colour.gold(), title='신입?! 이런 채널에?? 헐....;;\n나는 기능적인 부분을 도와줄꺼야\n 아오바는 음악적인 부분을 도와줄꺼야'))
 
 @client.event
 async def on_member_remove(member):
-    channel = member.server.get_channel("621324300120490006")
+    channel = member.server.get_channel("527835129150832641")
     fmt = '{0.mention}가 퇴사했어! 정말 현명한 선택인 것 같아.'
     await client.send_message(channel, fmt.format(member, member.server))
 
