@@ -361,21 +361,7 @@ async def on_message(message):
             await client.send_message(message.channel,
                                   embed=discord.Embed(colour=discord.Colour.gold(),
                                                       title='너...오늘..집에 가만히..있어.. 좀 불안해~'))
-    if message.content.startswith('지하철'):
-        hello = datetime.datetime.now()
-        hello2 = hello.hour
-        search = message.content[4:]
-        html = requests.get('https://search.naver.com/search.naver?query={}'.format(search))
-        souup = bs(html.text, 'html.parser')
-        sub = souup.find('div', {'class': 'content_search'})
-        sub1 = sub.find('div', {'id': 'timetable_weekend'})
-        sub2 = sub1.find('tbody')
-        sub3 = sub2.find('tr')
-        sub4 = sub3.findAll('td', {'class': 'mid'}).text
 
-
-        print(sub4)
-        print(hello2)
     if message.content.startswith('이미지검색'):
         search = message.content[6:]
         html = requests.get('https://search.naver.com/search.naver?where=image&sm=tab_jum&query={}'.format(search))
