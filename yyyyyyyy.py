@@ -57,7 +57,7 @@ async def on_message(message):
 
     if message.content.startswith("https"):
         await client.send_message(message.channel,"머야?머야? 나도 볼래!!")
-    if message.content.startswith("kokake"):
+    if message.content.startswith("Us:track"):
         await client.send_message(message.channel,"코이카케루신아이카노조!")
     if message.content.startswith("집가고싶다"):
         await client.send_message(message.channel, "ㅋㅋㅋㅋ 나는 평생 노는데 부럽지? 부러럽지?? 부럽지???!")
