@@ -166,9 +166,13 @@ async def on_message(message):
         await client.send_message(me, "{}".format(msg))
         await client.send_message(message.channel, "{} 80만원 쓴 음머어~ 찾아요!!".format(myid))
     if message.content.startswith("안녕"):
-        msg = "반가워~ {0.author.mention}아!!".format(message)
-        await client.send_file(message.channel,'새로운 안녕.gif')
-        await client.send_message(message.channel,"{}".format(msg))
+        if message.content[0:] == '안녕':
+             msg = "반가워~ {0.author.mention}아!!".format(message)
+             await client.send_file(message.channel,'새로운 안녕.gif')
+             await client.send_message(message.channel,"{}".format(msg))
+    if message.content.startswith("안녕하살법"):
+        await client.send_file(message.channel, '받아치기.gif')
+        await client.send_message(message.channel,embed=discord.Embed(colour=discord.Colour.gold(), title='안녕하살법 받아치기!'))
     if message.content.startswith("!융"):
         msgg=message.content[3:]
         answer = [
