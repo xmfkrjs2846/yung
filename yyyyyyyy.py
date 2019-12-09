@@ -282,14 +282,42 @@ async def on_message(message):
                                    "A : " + sheet["A" + str(i)].value + " B : " + sheet["B" + str(i)].value)
     if message.content.startswith("조용"):
         role = "에엣취"
-        rolename1 = '606031465846931466'
-        member = discord.utils.get(client.get_all_members(), id=rolename1)
+        name2 = message.content.split(" ")
+        name3 = name2[1]
+        name4 = name3[3:21]
+        print(name4)
+
+        member = discord.utils.get(client.get_all_members(), id=name4)
         for i in message.server.roles:
             if i.name == "에엣취":
                 role = i
                 break
         await client.add_roles(member, role)
-        await client.send_message(message.channel, "에..에?? 나도 말 하..하고..싶어...(취소)를 하면 명령이 취소됩니다")
+        for i in message.server.roles:
+            if i.name == "메이플안하는사람":
+                role = i
+                break
+        await client.remove_roles(member, role)
+        await client.send_message(message.channel, "팀장의 명령때문에 {}씨를 벙어리로 만들었어요~ ㅠㅠ 죄송합니다!!".format(name3))
+    if message.content.startswith("취소"):
+        role = "에엣취"
+        name2 = message.content.split(" ")
+        name3 = name2[1]
+        name4 = name3[3:21]
+        print(name4)
+
+        member = discord.utils.get(client.get_all_members(), id=name4)
+        for i in message.server.roles:
+            if i.name == "에엣취":
+                role = i
+                break
+        await client.remove_roles(member, role)
+        for i in message.server.roles:
+            if i.name == "메이플안하는사람":
+                role = i
+                break
+        await client.add_roles(member, role)
+        await client.send_message(message.channel, "{}야 너 징계 풀어준데 잘됐지?! 그치그치??".format(name3))
 
     if message.content.startswith('검색'):
         life = message.content[3:]
