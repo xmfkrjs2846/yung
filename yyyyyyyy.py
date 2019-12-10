@@ -39,10 +39,12 @@ async def on_message(message):
          await client.send_message(message.channel, "수고하셨어요~! 저 먼저 퇴근할게요!\n(앞으로 융이 아무 말도 하지 않습니다)")
          del talk[0]
          talk.append(0)
+         await client.change_presence(status=discord.Status.idle, game=discord.Game(name="집에서 노는 것을", type=1))
    if message.content.startswith("출근"):
          await client.send_message(message.channel, "오늘도 야근인가... 후우...;;")
          del talk[0]
          talk.append(1)
+         await client.change_presence(game=discord.Game(name="버그시 호출;;| help", type=1))
    if talk[0] == 1:
     if message.content.startswith("융"):
         await client.send_message(message.channel,"융융!")
