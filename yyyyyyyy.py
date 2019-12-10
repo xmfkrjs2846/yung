@@ -7,7 +7,7 @@ import openpyxl
 import os
 
 client = discord.Client()
-
+talk = [0]
 
 @client.event
 async def on_ready():
@@ -35,8 +35,15 @@ async def on_member_remove(member):
 @client.event
 async def on_message(message):
  if message.author != client.user:
-
-   #융 대화
+   if message.content.startswith("퇴근"):
+         await client.send_message(message.channel, "수고하셨어요~! 저 먼저 퇴근할게요!\n(앞으로 융이 아무 말도 하지 않습니다)")
+         del talk[0]
+         talk.append(0)
+   if message.content.startswith("출근"):
+         await client.send_message(message.channel, "오늘도 야근인가... 후우...;;")
+         del talk[0]
+         talk.append(1)
+   if talk[0] == 1:
     if message.content.startswith("융"):
         await client.send_message(message.channel,"융융!")
     if message.content.startswith("혹시"):
@@ -436,7 +443,9 @@ async def on_message(message):
             embed.add_field(name='운세', value='당신의 오늘의 운을 말해줍니다.', inline=False)
             embed.add_field(name='기억데이터', value='융이 저장한 단어들을 표시함', inline=False)
             embed.add_field(name='이미지검색', value='네이버이미지검색 첫번째 이미지를 가져옵니다 | 이미지검색 (검색어)', inline=False)
-
+            embed.add_field(name='조용', value='메이플안하는사람을 조용히 시킵니다 | 조용 (맨션)', inline=False)
+            embed.add_field(name='출근', value='융이 출근하여 다시 말을 할 수 있습니다', inline=False)
+            embed.add_field(name='퇴근', value='융이 퇴근하여 사내가 조용합니다.', inline=False)
             await client.send_message(channel, embed=embed)
 
 access_token=os.environ["bot_token"]
