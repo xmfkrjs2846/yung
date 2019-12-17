@@ -422,6 +422,63 @@ async def on_message(message):
         embed.set_footer(icon_url='https://cdn.discordapp.com/attachments/621324300120490006/631109608638906408/12121212121211111.jpg',text=f'{message.author.name}선배가 요청하신 자료에요~ 저 잘했죠?!')
         embed.set_image(url=imgs2)  # 이미지의 링크를 지정해 이미지를 설정합니다.
         await client.send_message(message.channel, embed=embed)  # 메시지를 보냅니다.
+    if message.content.startswith("확률"):
+        split = message.content[3:]
+        await client.send_message(message.channel,"1부터 10까지 좋아하는 숫자를 하나 골라줘")
+        a = random.randint(1, 100)
+        b = random.randint(1, 100)
+        c = random.randint(1, 100)
+        d = random.randint(1, 100)
+        e = random.randint(1, 100)
+        f = random.randint(1, 100)
+        g = random.randint(1, 100)
+        h = random.randint(1, 100)
+        i = random.randint(1, 100)
+        j = random.randint(1, 100)
+        persent = [a,b,c,d,e,f,g,h,i,j]
+        msg = await client.wait_for_message(author=message.author)
+        if msg.content == '1':
+            await client.send_message(message.channel,"너가 1를 고른 결과로 {}의 확률 결과 {}%가 나왔어\n너가 다른 것을 골랐을때의 표를 출력할까?\n출력할려면 print라 입력해줘".format(split, persent[0]))
+        elif msg.content == '2':
+            await client.send_message(message.channel,
+                                      "너가 2를 고른 결과로 {}의 확률 결과 {}%가 나왔어\n너가 다른 것을 골랐을때의 표를 출력할까?\n출력할려면 print라 입력해줘".format(
+                                          split, persent[1]))
+        elif msg.content == '3':
+            await client.send_message(message.channel,
+                                      "너가 3를 고른 결과로 {}의 확률 결과 {}%가 나왔어\n너가 다른 것을 골랐을때의 표를 출력할까?\n출력할려면 print라 입력해줘".format(
+                                          split, persent[2]))
+        elif msg.content == '4':
+            await client.send_message(message.channel,
+                                      "너가 4를 고른 결과로 {}의 확률 결과 {}%가 나왔어\n너가 다른 것을 골랐을때의 표를 출력할까?\n출력할려면 print라 입력해줘".format(
+                                          split, persent[3]))
+        elif msg.content == '5':
+            await client.send_message(message.channel,
+                                      "너가 5를 고른 결과로 {}의 확률 결과 {}%가 나왔어\n너가 다른 것을 골랐을때의 표를 출력할까?\n출력할려면 print라 입력해줘".format(
+                                          split, persent[4]))
+        elif msg.content == '6':
+            await client.send_message(message.channel,
+                                      "너가 2를 고른 결과로 {}의 확률 결과 {}%가 나왔어\n너가 다른 것을 골랐을때의 표를 출력할까?\n출력할려면 print라 입력해줘".format(
+                                          split, persent[5]))
+        elif msg.content == '7':
+            await client.send_message(message.channel,
+                                      "너가 7를 고른 결과로 {}의 확률 결과 {}%가 나왔어\n너가 다른 것을 골랐을때의 표를 출력할까?\n출력할려면 print라 입력해줘".format(
+                                          split, persent[6]))
+        elif msg.content == '8':
+            await client.send_message(message.channel,
+                                      "너가 8를 고른 결과로 {}의 확률 결과 {}%가 나왔어\n너가 다른 것을 골랐을때의 표를 출력할까?\n출력할려면 print라 입력해줘".format(
+                                          split, persent[7]))
+        elif msg.content == '9':
+            await client.send_message(message.channel,
+                                      "너가 9를 고른 결과로 {}의 확률 결과 {}%가 나왔어\n너가 다른 것을 골랐을때의 표를 출력할까?\n출력할려면 print라 입력해줘".format(
+                                          split, persent[8]))
+        elif msg.content == '10':
+            await client.send_message(message.channel,
+                                      "너가 10을 고른 결과로 {}의 확률 결과 {}%가 나왔어\n너가 다른 것을 골랐을때의 표를 출력할까?\n출력할려면 print라 입력해줘".format(
+                                          split, persent[9]))
+        await client.wait_for_message(author=message.author, content='print')
+        await client.send_message(message.channel,
+                                  '1번째: %d퍼, 2번째: %d퍼, 3번째: %d퍼, 4번째: %d퍼,\n5번재: %d퍼, 6번째: %d퍼, 7번째: %d퍼, 8번째: %d퍼\n9번째: %d퍼, 10번째: %d퍼' % (
+                                  a, b, c, d, e, f, g, h, i, j))
 
     if message.content.startswith("도와줘") or message.content.startswith("help"):
             channel = message.channel
