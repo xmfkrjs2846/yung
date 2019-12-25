@@ -173,12 +173,18 @@ async def on_message(message):
         me = await client.get_user_info('356311092332593152')
         msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
         await client.send_message(me, "{}".format(msg))
-        await client.send_message(message.channel, "{} 80만원 쓴 음머어~ 찾아요!!".format(myid))
+        await client.send_message(message.channel, "{} 180만원 쓴 음머어~ 찾아요!!".format(myid))
     if message.content.startswith("안녕"):
         if message.content[0:] == '안녕':
              msg = "반가워~ {0.author.mention}아!!".format(message)
              await client.send_file(message.channel,'새로운 안녕.gif')
              await client.send_message(message.channel,"{}".format(msg))
+    if message.content.startswith('강성'):
+        myid = '<@386501875379470338>'
+        me = await client.get_user_info('386501875379470338')
+        msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
+        await client.send_message(me, "{}".format(msg))
+        await client.send_message(message.channel, "{}저기 메이플 대체 언제 그만 두실 꺼에요?!".format(myid))
     if message.content.startswith("안녕하살법"):
         await client.send_file(message.channel, '받아치기.gif')
         await client.send_message(message.channel,embed=discord.Embed(colour=discord.Colour.gold(), title='안녕하살법 받아치기!'))
