@@ -185,6 +185,12 @@ async def on_message(message):
         msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
         await client.send_message(me, "{}".format(msg))
         await client.send_message(message.channel, "{}저기 메이플 대체 언제 그만 두실 꺼에요?!".format(myid))
+    if message.content.startswith('흑인'):
+        myid = '<@386501875379470338>'
+        me = await client.get_user_info('386501875379470338')
+        msg = "{0.author.mention}흑흑흗흑흑흑흑흑흫흑흑ㅎ긓긓ㄱ흐긓긓ㄱ".format(message)
+        await client.send_message(me, "{}".format(msg))
+        await client.send_message(message.channel, "{}저기 메이플 대체 언제 그만 두실 꺼에요?!".format(myid))
     if message.content.startswith("안녕하살법"):
         await client.send_file(message.channel, '받아치기.gif')
         await client.send_message(message.channel,embed=discord.Embed(colour=discord.Colour.gold(), title='안녕하살법 받아치기!'))
