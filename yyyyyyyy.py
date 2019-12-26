@@ -79,7 +79,9 @@ async def on_message(message):
     if message.content.startswith("융털"):
         await client.send_file(message.channel, '11111.gif')
         await client.send_message(message.channel, "벼...변.태..")
-
+    if message.content.startswith("바보"):
+        await client.send_file(message.channel, '564.jpg')
+        await client.send_message(message.channel,"너한테 바보라는데? 풉!")
     if message.content.startswith("인정"):
         await client.send_message(message.channel, "난 일단은 인정 해줄게~")
     if message.content.startswith("이이잉"):
