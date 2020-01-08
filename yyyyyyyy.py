@@ -115,6 +115,9 @@ async def on_message(message):
         await client.send_message(message.channel,"{}누군가 널 부르는거 같은데??".format(myid))
     if message.content.startswith('태훈'):
         myid='<@344788669502193666>'
+        me = await client.get_user_info('344788669502193666')
+        msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
+        await client.send_message(me, "{}".format(msg))
         await client.send_message(message.channel, "{}누가 널 먹을려하는 것 같아 좀 무섭다.. ".format(myid))
     if message.content.startswith('대영'):
         myid='<@368617760412139520>'
@@ -175,7 +178,7 @@ async def on_message(message):
         me = await client.get_user_info('356311092332593152')
         msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
         await client.send_message(me, "{}".format(msg))
-        await client.send_message(message.channel, "{} 180만원 쓴 음머어~ 찾아요!!".format(myid))
+        await client.send_message(message.channel, "{} 190만원 쓴 음머어~ 찾아요!!".format(myid))
     if message.content.startswith("안녕"):
         if message.content[0:] == '안녕':
              msg = "반가워~ {0.author.mention}아!!".format(message)
@@ -493,7 +496,48 @@ async def on_message(message):
         await client.send_message(message.channel,
                                   '1번째: %d퍼, 2번째: %d퍼, 3번째: %d퍼, 4번째: %d퍼,\n5번재: %d퍼, 6번째: %d퍼, 7번째: %d퍼, 8번째: %d퍼\n9번째: %d퍼, 10번째: %d퍼' % (
                                   a, b, c, d, e, f, g, h, i, j))
-
+    if message.content.startswith("메이플지지"):
+        abritudy = message.content.split(" ")
+        namereal = abritudy[1]
+        htmll = requests.get('https://maple.gg/u/{}'.format(namereal))
+        maplegg = 'https://maple.gg/'
+        soup = bs(htmll.text, 'html.parser')
+        maple = soup.find('section', {'class': 'container'})
+        maple1 = maple.find('div', {'class': 'col-lg-8'})
+        maple2 = maple1.find('img')['alt']  #서버
+        maple21 = maple1.find('b').text #이름
+        maple3 = maple1.find('ul')
+        maple4 = maple3.find('li').text #레벨
+        maple5 = maple3.findAll('li')
+        maple6 = maple5[1].text #직업
+        maple7 = maple5[2]
+        maple8 = maple7.findAll('span')
+        maple9 = maple8[1].text #인기도
+        maple10 = maple1.find('div', {'class': 'row'})
+        try:
+            maple11 = maple10.find('a').text  # 길드
+        except AttributeError:
+            maple11 = 'X'
+            print('길드없음')
+        maple12 = maple10.find('span').text
+        maple13 = maple12.split("\n")
+        maple14 = maple13[0] #종합랭킹
+        maple15 = maple10.findAll('span')
+        maple16 = maple15[1].text #월드랭킹
+        maple17 = maple15[2].text #직업랭킹
+        picture = maple.find('img')
+        picture1 = picture.get('src')
+        embed = discord.Embed(colour=discord.Colour.green())
+        embed.set_thumbnail(url=picture1)
+        embed.add_field(name='메이플지지로 검색중~~',
+                        value='{}를 검색해볼게~\n-------------------------------------------------------'.format(namereal),
+                        inline=False)
+        embed.add_field(name='검색결과', value='시버: %s\n닉네임: %s\n%s\n직업: %s\n인기도: %s\n길드: %s\n종합랭킹:%s\n월드랭킹:%s\n직업랭킹(월드): %s' % (maple2, maple21,maple4,maple6,maple9,maple11,maple14,maple16,maple17),inline=False)
+        embed.add_field(name='자세히는 직접 검색해줘~', value='%s' % (maplegg), inline=False)
+        embed.set_footer(
+            icon_url='https://cdn.discordapp.com/attachments/621324300120490006/631109608638906408/12121212121211111.jpg',
+            text=f'{message.author.name}너?! 메이플 경력좀 있는데?!')
+        await client.send_message(message.channel, embed=embed)
     if message.content.startswith("도와줘") or message.content.startswith("help"):
             channel = message.channel
             embed = discord.Embed(
