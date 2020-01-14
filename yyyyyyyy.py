@@ -118,11 +118,11 @@ async def on_message(message):
         await client.send_file(message.channel, '뜨끔...gif')
         await client.send_message(message.channel,"{}누군가 널 부르는거 같은데??".format(myid))
     if message.content.startswith('태훈'):
-        myid='<@344788669502193666>'
+        myid = '<@344788669502193666>'
         me = await client.get_user_info('344788669502193666')
-        msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
+        msg = "{0.author.mention}가 너를 부르고 있어~ 빨리 가보는게 어때?".format(message)
         await client.send_message(me, "{}".format(msg))
-        await client.send_message(message.channel, "{}누가 널 먹을려하는 것 같아 좀 무섭다.. ".format(myid))
+        await client.send_message(message.channel,"{}누군가 널 부르는거 같은데??".format(myid))
     if message.content.startswith('대영'):
         myid='<@368617760412139520>'
         me = await client.get_user_info('368617760412139520')
