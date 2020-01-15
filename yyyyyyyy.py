@@ -109,7 +109,7 @@ async def on_message(message):
     if message.content.startswith("뜨끔") or message.content.startswith("들킴"):
         await client.send_file(message.channel, '두리번 두리번.gif')
         await client.send_message(message.channel, "....?")
-    if message.content.startswith("병신") or message.content.startswith("ㅂㅅ") or message.content.startswith("ㅄ")
+    if message.content.startswith("병신") or message.content.startswith("ㅂㅅ") or message.content.startswith("ㅄ"):
         await client.send_message(message.channel,"....???")
         time.sleep(1)
         await client.send_message(message.channel,"아! 뭔지 알았어~! ㅂㅅ인지 검증해볼게~!")
