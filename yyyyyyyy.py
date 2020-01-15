@@ -75,8 +75,11 @@ async def on_message(message):
         await client.send_message(message.channel, "ㅋㅋㅋㅋ 나는 평생 노는데 부럽지? 부러럽지?? 부럽지???!")
     if message.content.startswith("심심"):
         await client.send_message(message.channel,"휴가 나왔어? 부럽네~")
-    if message.content.startswith("ㅇㅈ"):
-        await client.send_message(message.channel, "저는 이거 인정 못합니다!!")
+    if message.content.startswith("ㅇㅈ") or message.content.startswith("인정"):
+        injun = ["저기 이건 내가 생각하기에 좀 아니라도 생각하는데...",
+                 "너 의외로 맞는 말 한다?!"]
+        hey1 = random.choice(injun)
+        await client.send_message(message.channel, "{}".format(hey1))
     if message.content.startswith("ㄷㅊ") or message.content.startswith("닥쳐"):
         await client.send_message(message.channel, "선배 죄송합니다...ㅜㅜ 다시 일 시작할게요ㅠㅠ 해고만은!!")
     if message.content.startswith("융털"):
@@ -85,8 +88,6 @@ async def on_message(message):
     if message.content.startswith("바보"):
         await client.send_file(message.channel, '바보.jpg')
         await client.send_message(message.channel,"너한테 바보라는데? 풉!")
-    if message.content.startswith("인정"):
-        await client.send_message(message.channel, "난 일단은 인정 해줄게~")
     if message.content.startswith("이이잉"):
         await client.send_message(message.channel, "앗살라말라이쿰")
         await client.send_file(message.channel, '안경.png')
@@ -113,10 +114,17 @@ async def on_message(message):
         await client.send_message(message.channel,"....???")
         time.sleep(1)
         await client.send_message(message.channel,"아! 뭔지 알았어~! ㅂㅅ인지 검증해볼게~!")
+        time.sleep(2)
         answer1 = ["삐비빅 넌 몸이 아픈걸로 판정났어! 병원이라도 가봐~!",
-                  "칫! 널 바보취급할수 있는 기회였는데 정상이라니..."]
+                  "칫! 널 바보 취급 할 수 있는 기회였는데 정상이라니..."]
         hey = random.choice(answer1)
-        await client.send_message(message.channel,"{}".format(hey)
+        await client.send_message(message.channel,"{}".format(hey))
+    if message.content.startswith("역겹") or message.content.startswith("ㄴㄷㅆ") or message.content.startswith("네다씹") or message.content.startswith("무서"):
+        await client.send_file(message.channel, '무서.jpg')
+        await client.send_message(message.channel, "나랑 3M만 떨어줘줄래? 조끔 그렇다..")
+    if message.content.startswith("힘내") or message.content.startswith("화이팅"):
+        await client.send_message(message.channel, "아자아자!!")
+        await client.send_file(message.channel,'아자.jpg')
     #호출
     if message.content.startswith('준혁'):
         myid = '<@379966497293991937>'
