@@ -109,6 +109,14 @@ async def on_message(message):
     if message.content.startswith("뜨끔") or message.content.startswith("들킴"):
         await client.send_file(message.channel, '두리번 두리번.gif')
         await client.send_message(message.channel, "....?")
+    if message.content.startswith("병신") or message.content.startswith("ㅂㅅ") or message.content.startswith("ㅄ")
+        await client.send_message(message.channel,"....???")
+        time.sleep(1)
+        await client.send_message(message.channel,"아! 뭔지 알았어~! ㅂㅅ인지 검증해볼게~!")
+        answer1 = ["삐비빅 넌 몸이 아픈걸로 판정났어! 병원이라도 가봐~!",
+                  "칫! 널 바보취급할수 있는 기회였는데 정상이라니..."]
+        hey = random.choice(answer1)
+        await client.send_message(message.channel,"{}".format(hey)
     #호출
     if message.content.startswith('준혁'):
         myid = '<@379966497293991937>'
@@ -182,7 +190,7 @@ async def on_message(message):
         me = await client.get_user_info('356311092332593152')
         msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
         await client.send_message(me, "{}".format(msg))
-        await client.send_message(message.channel, "{} 190만원 쓴 음머어~ 찾아요!!".format(myid))
+        await client.send_message(message.channel, "{} 260만원 쓴 음머어~ 찾아요!!".format(myid))
     if message.content.startswith("안녕"):
         if message.content[0:] == '안녕':
              msg = "반가워~ {0.author.mention}아!!".format(message)
