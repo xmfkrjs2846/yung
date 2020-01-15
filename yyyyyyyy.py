@@ -124,7 +124,7 @@ async def on_message(message):
         await client.send_message(message.channel, "나랑 3M만 떨어줘줄래? 조끔 그렇다..")
     if message.content.startswith("힘내") or message.content.startswith("화이팅"):
         await client.send_message(message.channel, "아자아자!!")
-        await client.send_file(message.channel,'아자.jpg')
+        await client.send_file(message.channel, '아자.jpg')
     #호출
     if message.content.startswith('준혁'):
         myid = '<@379966497293991937>'
