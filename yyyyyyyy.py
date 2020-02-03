@@ -5,6 +5,7 @@ import time
 import random
 import openpyxl
 import os
+import asyncio
 
 client = discord.Client()
 talk = [0]
