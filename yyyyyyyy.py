@@ -199,7 +199,7 @@ async def on_message(message):
         me = await client.get_user_info('356311092332593152')
         msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
         await client.send_message(me, "{}".format(msg))
-        await client.send_message(message.channel, "{} 375만원 쓴 음머어~ 찾아요!!".format(myid))
+        await client.send_message(message.channel, "{} 438만원 쓴 음머어~ 찾아요!!".format(myid))
     if message.content.startswith("안녕"):
         if message.content[0:] == '안녕':
              msg = "반가워~ {0.author.mention}아!!".format(message)
