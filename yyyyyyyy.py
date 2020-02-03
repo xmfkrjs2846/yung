@@ -558,6 +558,31 @@ async def on_message(message):
             icon_url='https://cdn.discordapp.com/attachments/621324300120490006/631109608638906408/12121212121211111.jpg',
             text=f'{message.author.name}너?! 메이플 경력좀 있는데?!')
         await client.send_message(message.channel, embed=embed)
+    if message.content.startswith("재획"):
+        await client.send_message(message.channel,"경쿠30분 4개: 1번\n기타는 2번을 입력시켜줘~")
+        msg = await client.wait_for_message(author=message.author)
+
+        if msg.content == '1' or msg.content == '1번':
+            a0 =await client.send_message(message.channel,"{0.author.mention}재물획득의 비약을 시작중~!!".format(message))
+            ax = await client.send_message(message.channel,"경험치 쿠폰 30분 시작되었어~ㅎ 4/1")
+            await asyncio.sleep(5)
+            await client.delete_message(ax)
+            await asyncio.sleep(1790)
+            a = await client.send_message(message.channel, "{0.author.mention}아 경험치 구폰을 곧 먹어야해 4/2".format(message))
+            await asyncio.sleep(5)
+            await client.delete_message(a)
+            await asyncio.sleep(1795)
+            b = await client.send_message(message.channel, "{0.author.mention}아 경험치 구폰을 곧 먹어야해 4/3".format(message))
+            await asyncio.sleep(5)
+            await client.delete_message(b)
+            await asyncio.sleep(1795)
+            c = await client.send_message(message.channel, "{0.author.mention}아 경험치 구폰을 곧 먹어야해 4/4".format(message))
+            await asyncio.sleep(5)
+            await client.delete_message(c)
+            await client.send_message(message.channel, "수고했어~")
+            await client.delete_message(a0)
+            if msg.content == '2' or msg.content == '2번':
+                 await client.send_message(message.channel, "개발중")
     if message.content.startswith("도와줘") or message.content.startswith("help"):
             channel = message.channel
             embed = discord.Embed(
