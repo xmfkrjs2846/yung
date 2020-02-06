@@ -583,7 +583,6 @@ async def on_message(message):
             await asyncio.sleep(1798)
             axc = await client.send_message(message.channel, "수고했어~")
             await client.delete_message(a0)
-            await client.delete_message(a0)
             await asyncio.sleep(5)
             await client.delete_message(axc)
             if msg.content == '2' or msg.content == '2번':
