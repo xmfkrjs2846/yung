@@ -269,7 +269,11 @@ async def on_message(message):
             chonumber = random.randint(1, len(choice) - 1)
             choiceresult = choice[chonumber]
             await client.send_message(message.channel, '나는 "{}" 좋다고 생각해!!'.format(choiceresult))
-
+    if message.content.startswith("전해"):
+        agc = message.content[3:]
+        async for m in client.logs_from(message.channel, limit=1):
+            await client.delete_message(m)
+        await client.send_message(message.channel, "{}".format(agc))
 
     if message.content.startswith("주사위"):
             dice = random.randrange(1, 6)
