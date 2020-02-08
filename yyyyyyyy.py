@@ -86,6 +86,8 @@ async def on_message(message):
     if message.content.startswith("융털"):
         await client.send_file(message.channel, '11111.gif')
         await client.send_message(message.channel, "벼...변.태..")
+    if message.content.startswith("뇽"):
+        await client.send_message(message.channel,"뇽뇽뇽뇽뇽뇽뇽뇽?")
     if message.content.startswith("바보"):
         await client.send_file(message.channel, '바보.jpg')
         await client.send_message(message.channel,"너한테 바보라는데? 풉!")
@@ -199,7 +201,7 @@ async def on_message(message):
         me = await client.get_user_info('356311092332593152')
         msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
         await client.send_message(me, "{}".format(msg))
-        await client.send_message(message.channel, "{} 438만원 쓴 음머어~ 찾아요!!".format(myid))
+        await client.send_message(message.channel, "{} 448만원 쓴 음머어~ 찾아요!!".format(myid))
     if message.content.startswith("안녕"):
         if message.content[0:] == '안녕':
              msg = "반가워~ {0.author.mention}아!!".format(message)
