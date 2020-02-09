@@ -184,6 +184,12 @@ async def on_message(message):
         msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
         await client.send_message(me, "{}".format(msg))
         await client.send_message(message.channel, "{}연꽃? 렌게?! 흐음~ 뭔가 떠오르는 것 같기도 하고 아무튼 당신을 부르고있어요.".format(myid))
+    if message.content.startswith('시원'):
+        myid = '<@519867402385752064>'
+        me = await client.get_user_info('519867402385752064')
+        msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
+        await client.send_message(me, "{}".format(msg))
+        await client.send_message(message.channel, "{}야~ 도박좀 그만하고 다녀라.... 글고 렙좀 올려".format(myid))
     if message.content.startswith('종원'):
         myid = '<@271957069991641088>'
         me = await client.get_user_info('271957069991641088')
