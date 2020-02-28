@@ -38,6 +38,7 @@ async def on_message(message):
  if message.author != client.user:
    if message.content.startswith("퇴근"):
          await client.send_message(message.channel, "수고하셨어요~! 저 먼저 퇴근할게요!\n(앞으로 융이 아무 말도 하지 않습니다)")
+         await client.send_file(message.channel, '퇴근.gif')
          del talk[0]
          talk.append(1)
          await client.change_presence(status=discord.Status.idle, game=discord.Game(name="집에서 노는 것을", type=1))
@@ -106,6 +107,13 @@ async def on_message(message):
     if message.content.startswith("아님") or message.content.startswith("ㄴㄴ") or message.content.startswith("아니"):
         await client.send_file(message.channel, '아 아니야.gif')
         await client.send_message(message.channel, "머가 아닌데?? 솔직히 말해바~ 내가 다 들어줄게~ㅋㅋ")
+    if message.content.startswith("안됨") or message.content.startswith("안돼"):
+        await client.send_file(message.channel, 'ㄴㄴ2'.gif)
+        await client.send_message(message.channel, "안되는거 시러!")
+        await client.send_message(message.channel, "시러!!")
+        await client.send_message(message.channel, "시러!!!")
+        asyncio.sleep(2)
+        await client.send_message(message.channel, "미안 내가 좀 어떻게 됬었나봐...")
     if message.content.startswith("메이플"):
         if message.content[0:] =="메이플":
             await client.send_file(message.channel,'일.gif')
@@ -207,7 +215,7 @@ async def on_message(message):
         me = await client.get_user_info('356311092332593152')
         msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
         await client.send_message(me, "{}".format(msg))
-        await client.send_message(message.channel, "{} 448만원 쓴 음머어~ 찾아요!!".format(myid))
+        await client.send_message(message.channel, "{} 512만원 쓴 음머어~ 찾아요!!".format(myid))
     if message.content.startswith("안녕"):
         if message.content[0:] == '안녕':
              msg = "반가워~ {0.author.mention}아!!".format(message)
