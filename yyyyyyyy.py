@@ -108,7 +108,7 @@ async def on_message(message):
         await client.send_file(message.channel, '아 아니야.gif')
         await client.send_message(message.channel, "머가 아닌데?? 솔직히 말해바~ 내가 다 들어줄게~ㅋㅋ")
     if message.content.startswith("안됨") or message.content.startswith("안돼"):
-        await client.send_file(message.channel,'ㄴㄴ2'.gif)
+        await client.send_file(message.channel,'ㄴㄴ2.gif')
         await client.send_message(message.channel,"안되는거 시러!")
         await client.send_message(message.channel,"시러!!")
         await client.send_message(message.channel,"시러!!!")
