@@ -76,7 +76,7 @@ async def on_message(message):
     if message.content.startswith("집가고싶다"):
         await client.send_message(message.channel, "ㅋㅋㅋㅋ 나는 평생 노는데 부럽지? 부러럽지?? 부럽지???!")
     if message.content.startswith("심심"):
-        await client.send_file(message.channel,'심심.gif')
+        await client.send_file(message.channel, '심심.gif')
         await client.send_message(message.channel,"너도 한가하냐 후우~")
     if message.content.startswith("ㅇㅈ") or message.content.startswith("인정"):
         injun = ["저기 이건 내가 생각하기에 좀 아니라도 생각하는데...",
