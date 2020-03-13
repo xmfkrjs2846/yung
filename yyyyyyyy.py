@@ -606,8 +606,68 @@ async def on_message(message):
             await client.delete_message(a0)
             await asyncio.sleep(5)
             await client.delete_message(axc)
-            if msg.content == '2' or msg.content == '2번':
-                 await client.send_message(message.channel, "개발중")
+        if msg.content == '2' or msg.content == '2번':
+            await client.send_message(message.channel, "경험치 쿠폰을 입력해줘\n ex: 30 30 20 20, 20 20 20 20 20 20\n 20분,30분,15분만 지원중!")
+            message1 = await client.wait_for_message(author=message.author)
+            if message1.content[0:1] == "20" or message1.content[0:2] == "30" or message1.content[0:2] == "15":
+                exp = message1.content.split(" ")
+                try:
+                    axp1 = int(exp[0]) * 60
+                except IndexError:
+                    axp1 = 0
+                try:
+                    axp2 = int(exp[1]) * 60
+                except IndexError:
+                    axp2 = 0
+                try:
+                    axp3 = int(exp[2]) * 60
+                except IndexError:
+                    axp3 = 0
+                try:
+                    axp4 = int(exp[3]) * 60
+                except IndexError:
+                    axp4 = 0
+                try:
+                    axp5 = int(exp[4]) * 60
+                except IndexError:
+                    axp5 = 0
+                try:
+                    axp6 = int(exp[5]) * 60
+                except IndexError:
+                    axp6 = 0
+                b0 = await client.send_message(message.channel, "{0.author.mention}재물획득의 비약을 시작중~!!".format(message))
+                b1 = await client.send_message(message.channel, "경험치 쿠폰 {}분 시작되었어~ㅎ".format(exp[0]))
+                await asyncio.sleep(5)
+                await client.delete_message(b1)
+                await asyncio.sleep(axp1)
+                if axp2 != 0:
+                    a = await client.send_message(message.channel, "{0.author.mention}아 경험치 구폰을 곧 먹어야해".format(message))
+                    await asyncio.sleep(5)
+                    await client.delete_message(a)
+                    await asyncio.sleep(axp2)
+                if axp3 != 0:
+                    b = await client.send_message(message.channel, "{0.author.mention}아 경험치 구폰을 곧 먹어야해".format(message))
+                    await asyncio.sleep(5)
+                    await client.delete_message(b)
+                    await asyncio.sleep(axp3)
+                if axp4 != 0:
+                    c = await client.send_message(message.channel, "{0.author.mention}아 경험치 구폰을 곧 먹어야해".format(message))
+                    await asyncio.sleep(5)
+                    await client.delete_message(c)
+                    await asyncio.sleep(axp4)
+                if axp5 != 0:
+                    d = await client.send_message(message.channel, "{0.author.mention}아 경험치 구폰을 곧 먹어야해".format(message))
+                    await asyncio.sleep(5)
+                    await client.delete_message(d)
+                    await asyncio.sleep(axp5)
+                if axp6 != 0:
+                    e = await client.send_message(message.channel, "{0.author.mention}아 경험치 구폰을 곧 먹어야해".format(message))
+                    await asyncio.sleep(5)
+                    await client.delete_message(e)
+                    await asyncio.sleep(axp6)
+                await client.send_message(message.channel, "수고했어~")
+                await client.delete_message(b0)
+                 
     if message.content.startswith("도와줘") or message.content.startswith("help"):
             channel = message.channel
             embed = discord.Embed(
