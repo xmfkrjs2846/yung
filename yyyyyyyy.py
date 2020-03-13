@@ -609,7 +609,7 @@ async def on_message(message):
         if msg.content == '2' or msg.content == '2번':
             await client.send_message(message.channel, "경험치 쿠폰을 입력해줘\n ex: 30 30 20 20, 20 20 20 20 20 20\n 20분,30분,15분만 지원중!")
             message1 = await client.wait_for_message(author=message.author)
-            if message1.content[0:1] == "20" or message1.content[0:2] == "30" or message1.content[0:2] == "15":
+            if message1.content[0:2] == "20" or message1.content[0:2] == "30" or message1.content[0:2] == "15":
                 exp = message1.content.split(" ")
                 try:
                     axp1 = int(exp[0]) * 60
