@@ -162,7 +162,7 @@ async def on_message(message):
         me = await client.get_user_info('286329350633029634')
         msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
         await client.send_message(me, "{}".format(msg))
-        await client.send_message(message.channel, "{}169.7cm..?그사람 여자야? 170cm가 안된다고?!".format(myid))
+        await client.send_message(message.channel, "{}169.6cm..? 풉?! 그..그게..혹시 키말하는 거야??! ㅋㅋ".format(myid))
     if message.content.startswith('후석'):
         myid='<@247651944926019584>'
         me = await client.get_user_info('247651944926019584')
