@@ -46,7 +46,7 @@ async def on_message(message):
          await client.send_message(message.channel, "오늘도 야근인가... 후우...;;")
          del talk[0]
          talk.append(0)
-         await client.change_presence(game=discord.Game(name="버그시 호출;;| help", type=1))
+         await client.change_presence(game=discord.Game(name="maplestory", type=1))
    if talk[0] == 0:
     if message.content.startswith("융"):
         await client.send_message(message.channel,"융융!")
