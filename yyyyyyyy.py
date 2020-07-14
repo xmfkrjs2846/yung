@@ -14,7 +14,7 @@ talk = [0]
 async def on_ready():
     print(client.user.id)
     print("ready")
-    await client.change_presence(game=discord.Game(name="maplestory;;| help", type=1))
+    await client.change_presence(game=discord.Game(name="maplestory", type=1))
 @client.event
 async def on_member_join(member):
     fmt = '[{1.name}] 에 입사한걸 환영해~, {0.mention}아'
