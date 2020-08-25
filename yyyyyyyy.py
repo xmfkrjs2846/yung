@@ -621,8 +621,8 @@ async def on_message(message):
                 await message.channel.send(embed=embed)
     else:
         if message.content.startswtih("융"):
-            awiat message.channel.send("응 나 불렀어?")
-            awiat message.channel.send("아니면 말고..")
+            await message.channel.send("응 나 불렀어?")
+            await message.channel.send("아니면 말고..")
                                        
 
 acess_token = os.environ["bot_token"]
