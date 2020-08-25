@@ -141,12 +141,11 @@ async def on_message(message):
                 await message.channel.send("안되는거 시러!")
                 await message.channel.send("시러!!")
                 await message.channel.send("시러!!!")
-                asyncio.sleep(2)
+                await asyncio.sleep(2)
                 await message.channel.send("미안 내가 좀 어떻게 됬었나봐...")
 
             if message.content.startswith("메이플"):
-                if message.content[0:] == "메이플":
-                    await message.channel.send("또 메이플이야..? 이제 슬슬 질릴때가 된거 같은데")
+                await message.channel.send("또 메이플이야..? 이제 슬슬 질릴때가 된거 같은데")
             if message.content.startswith("롤"):
                 await message.channel.send("나도 롤할래~ 끼워줘")
 
@@ -573,30 +572,30 @@ async def on_message(message):
                         except IndexError:
                             axp6 = 0
                         await message.channel.send("{0.author.mention}재물획득의 비약을 시작중~!!".format(message))
-                        await message.channel.send("경험치 쿠폰 {}분 시작되었어~ㅎ".format(exp[0]))
+                        await message.channel.send("경험치 쿠폰 {}분 시작되었어~ㅎ".format(exp[0]),delete_after=5)
                         await asyncio.sleep(5)
                         await asyncio.sleep(axp1)
                         if axp2 != 0:
-                            await message.channel.send("{0.author.mention}아 경험치 구폰을 곧 먹어야해".format(message))
+                            await message.channel.send("{0.author.mention}아 경험치 쿠폰을 곧 먹어야해".format(message),delete_after=5)
                             await asyncio.sleep(5)
                             await asyncio.sleep(axp2)
                         if axp3 != 0:
-                            await message.channel.send("{0.author.mention}아 경험치 구폰을 곧 먹어야해".format(message))
+                            await message.channel.send("{0.author.mention}아 경험치 쿠폰을 곧 먹어야해".format(message),delete_after=5)
                             await asyncio.sleep(5)
                             await asyncio.sleep(axp3)
                         if axp4 != 0:
-                            await message.channel.send("{0.author.mention}아 경험치 구폰을 곧 먹어야해".format(message))
+                            await message.channel.send("{0.author.mention}아 경험치 쿠폰을 곧 먹어야해".format(message),delete_after=5)
                             await asyncio.sleep(5)
                             await asyncio.sleep(axp4)
                         if axp5 != 0:
-                            await message.channel.send("{0.author.mention}아 경험치 구폰을 곧 먹어야해".format(message))
+                            await message.channel.send("{0.author.mention}아 경험치 쿠폰을 곧 먹어야해".format(message),delete_after=5)
                             await asyncio.sleep(5)
                             await asyncio.sleep(axp5)
                         if axp6 != 0:
-                            await client.send_message(message.channel,"{0.author.mention}아 경험치 구폰을 곧 먹어야해".format(message))
+                            await client.send_message(message.channel,"{0.author.mention}아 경험치 폰을 곧 먹어야해".format(message),delete_after=5)
                             await asyncio.sleep(5)
                             await asyncio.sleep(axp6)
-                        await message.channel.send("수고했어~")
+                        await message.channel.send("수고했어~",delete_after=5)
             if message.content.startswith("도와줘") or message.content.startswith("help"):
                 channel = message.channel
                 embed = discord.Embed(
@@ -614,15 +613,12 @@ async def on_message(message):
                 embed.add_field(name='청소', value='메세지를 삭제해줍니다. | 청소 (개수)', inline=False)
                 embed.add_field(name='타이머', value='타이머 기능을 작동시킵니다 | 타이머 (초)', inline=False)
                 embed.add_field(name='날씨', value='현재와 내일 오전,오후날씨를 알 수 있습니다. | 날씨 (지역)', inline=False)
-                embed.add_field(name='저장', value='저장 {a} {b} a단어를 들으면 b를 말해줍니다', inline=False)
-                embed.add_field(name='말해', value='말해 (융에게 시킬 단어)를 쓰면 융이 말해줌', inline=False)
-                embed.add_field(name='운세', value='당신의 오늘의 운을 말해줍니다.', inline=False)
-                embed.add_field(name='기억데이터', value='융이 저장한 단어들을 표시함', inline=False)
+                embed.add_field(name='운세', value='당신의 오늘의 운을 말해줍니다.', inline=False)       
                 embed.add_field(name='이미지검색', value='네이버이미지검색 첫번째 이미지를 가져옵니다 | 이미지검색 (검색어)', inline=False)
                 embed.add_field(name='조용', value='메이플안하는사람을 조용히 시킵니다 | 조용 (맨션)', inline=False)
                 embed.add_field(name='출근', value='융이 출근하여 다시 말을 할 수 있습니다', inline=False)
                 embed.add_field(name='퇴근', value='융이 퇴근하여 사내가 조용합니다.', inline=False)
-                await client.send_message(channel, embed=embed)
+                await message.channel.send(embed=embed)
 
 
 acess_token = os.environ["bot_token"]
