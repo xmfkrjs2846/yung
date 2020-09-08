@@ -529,8 +529,8 @@ async def on_message(message):
                     return m.author == message.author and m.channel == message.channel
                 msg = await client.wait_for('message', check=pred)
                 if msg.content == '1':
-                    await message.channel.send("1번이 선택 되었습니다.\n3초후 시작합니다.", delete_after=2)
-                    await asyncio.sleep(3)
+                    await message.channel.send("1번이 선택 되었습니다.\n5초후 시작합니다.", delete_after=2)
+                    await asyncio.sleep(5)
                     await message.channel.send("{0.author.mention}재물획득의 비약을 시작중~!!".format(message))
                     await message.channel.send("{0.author.mention}아 1번째 30분 쿠폰을 먹어야해".format(msg), delete_after=5)
                     await asyncio.sleep(1800)
@@ -541,11 +541,11 @@ async def on_message(message):
                     await message.channel.send("{0.author.mention}아 4번째 30분 쿠폰을 먹어야해".format(msg), delete_after=5)
                     await message.channel.send("{0.author.mention} 1재획 수고했어~".format(msg))
                 if msg.content == '2':
-                    await message.channel.send("경험치 쿠폰을 입력해줘\n ex: 30 30 20 20, 20 20 20 20 20 20\n 20분,30분,15분만 지원중!")
+                    await message.channel.send("경험치 쿠폰을 입력해줘\n ex: 30 30 20 20, 20 20 20 20 20 20\n")
                     def pred(m):
                         return m.author == message.author and m.channel == message.channel
                     msg1 = await client.wait_for('message', check=pred)
-                    if msg1.content[0:2] == "20" or msg1.content[0:2] == "30" or msg1.content[0:2] == "15":
+                    if msg1.content[0:2] == "20" or msg1.content[0:2] == "30" or msg1.content[0:2] == "15" or msg1.content[0:2] == "10" or msg1.content[0:2] == "60":
                         exp = msg1.content.split(" ")
                         try:
                             axp1 = int(exp[0]) * 60
@@ -571,9 +571,10 @@ async def on_message(message):
                             axp6 = int(exp[5]) * 60
                         except IndexError:
                             axp6 = 0
+                        await message.channel.send("5초후에 재획이 시작됩니다.")
+                        await asyncio.sleep(5)
                         await message.channel.send("{0.author.mention}재물획득의 비약을 시작중~!!".format(message))
                         await message.channel.send("경험치 쿠폰 {}분 시작되었어~ㅎ".format(exp[0]),delete_after=5)
-                        await asyncio.sleep(5)
                         await asyncio.sleep(axp1)
                         if axp2 != 0:
                             await message.channel.send("{0.author.mention}아 경험치 쿠폰을 곧 먹어야해".format(message),delete_after=5)
