@@ -59,7 +59,7 @@ async def on_member_remove(member):
 async def on_message(message):
     if message.author != client.user:
         if message.content.startswith("퇴근"):
-            if message.content[0:] == ':
+            if message.content[0:] == '퇴근':
                 await message.channel.send("수고하셨어요~! 저 먼저 퇴근할게요!\n(앞으로 융이 아무 말도 하지 않습니다)",file=discord.File('퇴근.gif'))
                 del talk[0]
                 talk.append(1)
