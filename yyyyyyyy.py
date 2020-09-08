@@ -165,7 +165,7 @@ async def on_message(message):
 
             if message.content.startswith("역겹") or message.content.startswith("ㄴㄷㅆ") or message.content.startswith(
                     "네다씹") or message.content.startswith("무서"):
-                await message.channel.send("나랑 3M만 떨어줘줄래? 조끔 그렇다..",file=discord.File('무섭.jpg'))
+                await message.channel.send("나랑 3M만 떨어줘줄래? 조끔 그렇다..",file=discord.File('무서.jpg'))
 
             if message.content.startswith("힘내") or message.content.startswith("화이팅"):
                 await message.channel.send("아자아자", file=discord.File("아자.jpg"))
