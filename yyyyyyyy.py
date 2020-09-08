@@ -59,11 +59,12 @@ async def on_member_remove(member):
 async def on_message(message):
     if message.author != client.user:
         if message.content.startswith("퇴근"):
-            await message.channel.send("수고하셨어요~! 저 먼저 퇴근할게요!\n(앞으로 융이 아무 말도 하지 않습니다)",file=discord.File('퇴근.gif'))
-            del talk[0]
-            talk.append(1)
-            game = discord.Game("집에서 노는 것을")
-            await client.change_presence(status=discord.Status.dnd, activity=game)
+            if message.content[0:] == ':
+                await message.channel.send("수고하셨어요~! 저 먼저 퇴근할게요!\n(앞으로 융이 아무 말도 하지 않습니다)",file=discord.File('퇴근.gif'))
+                del talk[0]
+                talk.append(1)
+                game = discord.Game("집에서 노는 것을")
+                await client.change_presence(status=discord.Status.dnd, activity=game)
 
         if message.content.startswith("출근"):
             await message.channel.send("아아..내 황금같은 주말이 벌써..\n(융이 작동을 시작합니다.)")
