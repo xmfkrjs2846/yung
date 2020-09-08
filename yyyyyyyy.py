@@ -135,7 +135,7 @@ async def on_message(message):
                     await message.channel.send("뭔가 안좋은일이 라도 있었어??")
 
             if message.content.startswith("아님") or message.content.startswith("ㄴㄴ") or message.content.startswith("아니"):
-                await message.channel.send("머가 아닌데?? 솔직히 말해바~ 내가 다 들어줄게~ㅋㅋ", file=discord.File('아 아니야.gif'))
+                await message.channel.send("머가 아닌데?? 솔직히 말해바~ 내가 다 들어줄게~ㅋㅋ")
 
             if message.content.startswith("안됨") or message.content.startswith("안돼"):
                 await message.channel.send("안되는거 시러!", file=discord.File('시러.gif'))
@@ -165,8 +165,7 @@ async def on_message(message):
 
             if message.content.startswith("역겹") or message.content.startswith("ㄴㄷㅆ") or message.content.startswith(
                     "네다씹") or message.content.startswith("무서"):
-                await client.send_file(message.channel, '무서.jpg')
-                await client.send_message(message.channel, "나랑 3M만 떨어줘줄래? 조끔 그렇다..")
+                await message.channel.send("나랑 3M만 떨어줘줄래? 조끔 그렇다..",file=discord.File('무섭.jpg'))
 
             if message.content.startswith("힘내") or message.content.startswith("화이팅"):
                 await message.channel.send("아자아자", file=discord.File("아자.jpg"))
