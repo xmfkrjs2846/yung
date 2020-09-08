@@ -67,7 +67,7 @@ async def on_message(message):
                 await client.change_presence(status=discord.Status.dnd, activity=game)
 
         if message.content.startswith("출근"):
-            await message.channel.send("아아..내 황금같은 주말이 벌써..\n(융이 작동을 시작합니다.)")
+            await message.channel.send("아아..내 황금같은 주말이 벌써..\n(융이 작동을 시작합니다.)",discord.File("출근.jpg"))
             del talk[0]
             talk.append(0)
             game = discord.Game("New Game!!")
