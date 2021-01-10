@@ -172,7 +172,7 @@ async def on_message(message):
             # 호출
             if message.content.startswith('준혁'):
                 myid = '<@379966497293991937>'
-                await message.channel.send("{}??").format(myid))
+                await message.channel.send("{}??".format(myid))
                 await asyncio.sleep(1)
                 await message.channel.send("그는 이제 없어~")
                 await asyncio.sleep(2)
