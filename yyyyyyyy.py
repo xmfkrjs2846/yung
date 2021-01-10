@@ -172,81 +172,53 @@ async def on_message(message):
             # 호출
             if message.content.startswith('준혁'):
                 myid = '<@379966497293991937>'
-                me = message.guild.get_member(준혁1)
-                msg = "{0.author.mention}가 너를 부르고 있어~ 빨리 가보는게 어때?".format(message)
-                await me.send("{}".format(msg))
-                await message.channel.send("{}누군가 널 부르는거 같은데??".format(myid))
+                await message.channel.send("{}?? 그는 이제 없어~ 내가 먹어버렸거든~♡".format(myid))
             if message.content.startswith('태훈'):
                 myid = '<@344788669502193666>'
-                me = message.guild.get_member(태훈1)
-                msg = "{0.author.mention}가 너를 부르고 있어~ 빨리 가보는게 어때?".format(message)
-                await me.send("{}".format(msg))
                 await message.channel.send("{}누군가 널 부르는거 같은데??".format(myid))
             if message.content.startswith('대영'):
                 myid = '<@368617760412139520>'
-                me = message.guild.get_member(대영1)
-                msg = "{0.author.mention}상가 키미또 엣찌이나 코토 시타이떼 이떼이루요!!".format(message)
-                await me.send("{}".format(msg))
+                
                 await message.channel.send("{}아다 누가 너 부른다잉 씨게 대답 하그라!".format(myid))
             if message.content.startswith('영웅'):
                 myid = '<@286329350633029634>'
-                me = message.guild.get_member(영웅1)
-                msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
-                await me.send("{}".format(msg))
+               
                 await message.channel.send("{}169.6cm..? 풉?! 그..그게..혹시 키말하는 거야??! ㅋㅋ".format(myid))
             if message.content.startswith('후석'):
                 myid = '<@247651944926019584>'
-                me = message.guild.get_member(후석1)
-                msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
-                await me.send("{}".format(msg))
+               
                 await message.channel.send("{}저..저기..어떡해 이사람 꼭 불러야해??ㅠㅠ".format(myid))
             if message.content.startswith('종민'):
                 myid = '<@206663386937688065>'
-                me = message.guild.get_member(종민1)
-                msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
-                await me.send("{}".format(msg))
+                
                 await message.channel.send("{}리듬게임하고 있는 것 같은데 잠깐 나랑 이야기좀 해줄 수 있니?".format(myid))
             if message.content.startswith('민기'):
                 myid = '<@253749865035726848>'
-                me = message.guild.get_member(민기1)
-                msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
-                await me.send("{}".format(msg))
+               
                 await message.channel.send("{}저기! 당신의 이름이 뜻하는건 뭔지 알려주세요!!".format(myid))
             if message.content.startswith('권영'):
                 myid = '<@410450620823371778>'
-                me = message.guild.get_member(권영1)
-                msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
-                await me.send("{}".format(msg))
+               
                 await message.channel.send("{}통신보안 통신보안! 권영이를 호출중~".format(myid))
             if message.content.startswith('현개') or message.content.startswith("성현"):
                 myid = '<@245857392623878146>'
-                me = message.guild.get_member(성현1)
-                msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
-                await me.send("{}".format(msg))
+               
                 await message.channel.send("{}혀어어어어어언언언언개개객개개개".format(myid))
             if message.content.startswith('시원'):
                 myid = '<@519867402385752064>'
-                me = message.guild.get_member(시원1)
-                msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
-                await me.send("{}".format(msg))
+               
                 await message.channel.send("{}야~ 도박좀 그만하고 다녀라.... 글고 렙좀 올려".format(myid))
             if message.content.startswith('종원'):
                 myid = '<@271957069991641088>'
-                me = message.guild.get_member(종원1)
-                msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
-                await me.send("{}".format(msg))
+               
                 await message.channel.send("{}아이돌마스터?? 그게 머야? 먹는거야? 그리고 혹시 러브라이브 좋아해??!ㅋ".format(myid))
             if message.content.startswith('희태'):
                 myid = '<@241906227611697153>'
-                me = message.guild.get_member(희태1)
-                msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
-                await me.send("{}".format(msg))
+               
                 await message.content.send("{}벌레다!! 꺅!.. 서..선배.. 저 벌레좀 어떻게 해주세요!ㅠㅠ ".format(myid))
             if message.content.startswith('성규') or message.content.startswith('슬기') or message.content.startswith('성구'):
                 myid = '<@356311092332593152>'
-                me = message.guild.get_member(성규1)
-                msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
-                await me.send("{}".format(msg))
+               
                 await message.channel.send("{} 550만원 쓴 음머어~ 찾아요!!".format(myid))
             if message.content.startswith("안녕") or message.content.startswith("ㅎㅇ"):
                 if message.content[0:] == '안녕':
@@ -259,8 +231,8 @@ async def on_message(message):
                 msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
                 await me.send("{}".format(msg))
                 await message.channel.send("{}저기 메이플 대체 언제 그만 두실 꺼에요?!".format(myid))
-            if message.content.startswith('전역성규'):
-                lasttime = datetime(2021, 10, 5, 0, 0, 0)
+            if message.content.startswith('준혁전역'):
+                lasttime = datetime(2022, 7, 10, 0, 0, 0)
                 firsttime = datetime.now()
                 time2 = (lasttime-firsttime).days
                 await message.channel.send("아마 {}일 정도?? 남은 것 같아~".format(time2))
