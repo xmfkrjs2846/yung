@@ -172,7 +172,11 @@ async def on_message(message):
             # 호출
             if message.content.startswith('준혁'):
                 myid = '<@379966497293991937>'
-                await message.channel.send("{}?? 그는 이제 없어~ 내가 먹어버렸거든~♡".format(myid))
+                await message.channel.send("{}??").format(myid))
+                await asyncio.sleep(1)
+                await message.channel.send("그는 이제 없어~")
+                await asyncio.sleep(2)
+                await message.channel.send("내가 먹어버렸거든~♡")
             if message.content.startswith('태훈'):
                 myid = '<@344788669502193666>'
                 await message.channel.send("{}누군가 널 부르는거 같은데??".format(myid))
@@ -231,7 +235,7 @@ async def on_message(message):
                 msg = "{0.author.mention}이가 부르고있어 어서 대답해주는게 좋을 것 같은데?".format(message)
                 await me.send("{}".format(msg))
                 await message.channel.send("{}저기 메이플 대체 언제 그만 두실 꺼에요?!".format(myid))
-            if message.content.startswith('준혁전역'):
+            if message.content.startswith('전역준혁'):
                 lasttime = datetime(2022, 7, 10, 0, 0, 0)
                 firsttime = datetime.now()
                 time2 = (lasttime-firsttime).days
