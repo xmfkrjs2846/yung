@@ -242,6 +242,11 @@ async def on_message(message):
                 firsttime = datetime.now()
                 time2 = (lasttime-firsttime).days
                 await message.channel.send("아마 {}일 정도?? 남은 것 같아~".format(time2))
+            if message.content.startswith('전역대영'):
+                lasttime = datetime(2022, 10, 5, 0, 0, 0)
+                firsttime = datetime.now()
+                time3 = (lasttime-firsttime).days
+                await message.channel.send("어라어라? {}일 남았다고?! 진짜 어떻게 살아가냐 ㅋㅋ".format(time3))
             if message.content.startswith("!융"):
                 msgg = message.content[3:]
                 answer = [
