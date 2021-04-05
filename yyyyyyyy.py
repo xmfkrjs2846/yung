@@ -183,7 +183,9 @@ async def on_message(message):
             if message.content.startswith('대영'):
                 myid = '<@368617760412139520>'
                 
-                await message.channel.send("{}아다 누가 너 부른다잉 씨게 대답 하그라!".format(myid))
+                await message.channel.send("{}?? 어..".format(myid))
+                await asyncio.sleep(1)
+                await message.channel.send("아! 그 녀석.. 참 불쌍한 녀석이였지￦n 좀 가엽네 ㅋㅋㅋ")
             if message.content.startswith('영웅'):
                 myid = '<@286329350633029634>'
                
