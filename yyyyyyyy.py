@@ -221,7 +221,7 @@ async def on_message(message):
             if message.content.startswith('희태'):
                 myid = '<@241906227611697153>'
                
-                await message.content.send("{}벌레다!! 꺅!.. 서..선배.. 저 벌레좀 어떻게 해주세요!ㅠㅠ ".format(myid))
+                await message.channel.send("{}벌레다!! 꺅!.. 서..선배.. 저 벌레좀 어떻게 해주세요!ㅠㅠ ".format(myid))
             if message.content.startswith('성규') or message.content.startswith('슬기') or message.content.startswith('성구'):
                 myid = '<@356311092332593152>'
                
